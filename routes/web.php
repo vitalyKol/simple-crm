@@ -22,7 +22,9 @@ Route::get('/main', function(){
 Route::get('/users', function(){
     return view('users');
 })->name('users');
-
+Route::get('/clients', function(){
+    return view('clients');
+})->name('clients');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
