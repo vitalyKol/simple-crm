@@ -1,0 +1,31 @@
+.left_menu{
+    height: 100vh;
+    background-color: #2d3748;
+    color: #cccccc;
+    padding: 0;
+}
+.left_menu_title{
+    background-color: #1a202c;
+    width: 100%;
+    padding: 2vh;
+}
+.left_menu_list{
+    list-style-type: none;
+    padding: 0;
+}
+.left_menu_list li{
+    width: 100%;
+}
+.left_menu_list a{
+    display: block;
+    padding: 2vh;
+    width: 100%;
+    text-decoration: none;
+    color: #cccccc;
+}
+.left_menu_list a:hover{
+    background-color: #1a202c;
+}
+a i{
+    margin:0 2vh;
+}
