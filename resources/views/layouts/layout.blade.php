@@ -41,8 +41,12 @@
                     @endif
                 </div>
             </div>
-            <div class="content">
-                Right panel
+            <div class="container content">
+                <div class="row">
+                    <div class="col">
+                        @yield('content')
+                    </div>
+                </div>
             </div>
         </div>
     </div>
