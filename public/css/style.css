@@ -1,3 +1,6 @@
+a{
+    text-decoration: none;
+}
 .left_menu{
     height: 100vh;
     background-color: #2d3748;
@@ -25,7 +28,29 @@
 }
 .left_menu_list a:hover{
     background-color: #1a202c;
+    color: #FFFFFF;
 }
 a i{
     margin:0 2vh;
 }
+.right_block{
+    background-color: #cccccc;
+    padding: 0;
+}
+.top_line{
+    background-color: #fff;
+    position: relative;
+    padding: 2vh;
+}
+.top_line_login{
+    display: inline-block;
+    position: absolute;
+    right:2vh;
+}
+.top_line_login a{
+    color: #2d3748;
+}
+.top_line_login a:hover{
+    text-decoration: underline;
+}
+
