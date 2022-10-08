@@ -21,7 +21,7 @@
                 <li><a href="{{route('users')}}"><i class="fa fa-user" aria-hidden="true"></i> Users</a></li>
                 <li><a href="{{route('clients')}}"><i class="fa fa-address-card" aria-hidden="true"></i> Clients</a></li>
                 <li><a href="{{route('projects')}}"><i class="fa fa-folder-open" aria-hidden="true"></i> Projects</a></li>
-                <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a></li>
+                <li><a href="{{route('tasks')}}"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-lg-10 right_block">

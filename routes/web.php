@@ -28,6 +28,9 @@ Route::get('/clients', function(){
 Route::get('/projects', function(){
     return view('projects');
 })->name('projects');
+Route::get('/tasks', function(){
+    return view('tasks');
+})->name('tasks');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
