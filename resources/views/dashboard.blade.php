@@ -1,17 +1,54 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.layout')
+@section('content')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Create user
+                    </div>
+                    <div class="card-body text-center">
+                        <i class="fa fa-user fa-6x" aria-hidden="true"></i><br>
+                        <button class="btn btn-success mt-2 mb-2">Create user</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Create client
+                    </div>
+                    <div class="card-body text-center">
+                        <i class="fa fa-address-card fa-6x" aria-hidden="true"></i><br>
+                        <button class="btn btn-success mt-2 mb-2">Create client</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Create project
+                    </div>
+                    <div class="card-body text-center">
+                        <i class="fa fa-folder-open fa-6x" aria-hidden="true"></i><br>
+                        <button class="btn btn-success mt-2 mb-2">Create project</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Create task
+                    </div>
+                    <div class="card-body text-center">
+                        <i class="fa fa-tasks fa-6x" aria-hidden="true"></i><br>
+                        <button class="btn btn-success mt-2 mb-2">Create task</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection

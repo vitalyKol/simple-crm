@@ -17,7 +17,7 @@
         <div class="col-sm-3 col-lg-2 left_menu">
             <h5 class="text-center left_menu_title">CRM</h5>
             <ul class="left_menu_list">
-                <li><a href="#"><i class="fa fa-list-alt" aria-hidden="true"></i> Dashboard</a></li>
+                <li><a href="{{ route('dashboard') }}"><i class="fa fa-list-alt" aria-hidden="true"></i> Dashboard</a></li>
                 <li><a href="{{route('users')}}"><i class="fa fa-user" aria-hidden="true"></i> Users</a></li>
                 <li><a href="{{route('clients')}}"><i class="fa fa-address-card" aria-hidden="true"></i> Clients</a></li>
                 <li><a href="{{route('projects')}}"><i class="fa fa-folder-open" aria-hidden="true"></i> Projects</a></li>
@@ -30,7 +30,7 @@
                 <div class="top_line_login">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/dashboard') }}">Dashboard</a>
+                            <div>{{ Auth::user()->name }} : <a href="{{ route('logout') }}">Logout</a></div>
                         @else
                             <a href="{{ route('login') }}">Log in</a>
 
@@ -44,7 +44,9 @@
             <div class="container content">
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-success mt-2 mb-2">@yield('button')</button>
+                        @if(request()->route()->getName() !== 'dashboard')
+                            <button class="btn btn-success mt-2 mb-2">@yield('button')</button>
+                        @endif
                         @yield('content')
                     </div>
                     </div>
