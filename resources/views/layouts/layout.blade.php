@@ -44,9 +44,6 @@
             <div class="container content">
                 <div class="row">
                     <div class="col">
-                        @if(request()->route()->getName() !== 'dashboard')
-                            <button class="btn btn-success mt-2 mb-2">@yield('button')</button>
-                        @endif
                         @yield('content')
                     </div>
                     </div>

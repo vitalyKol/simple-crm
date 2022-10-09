@@ -14,23 +14,37 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 Route::get('/main', function(){
     return view('main');
 });
 Route::get('/users', function(){
-    return view('users');
+    return view('users.users');
 })->name('users');
 Route::get('/clients', function(){
-    return view('clients');
+    return view('clients.clients');
 })->name('clients');
 Route::get('/projects', function(){
-    return view('projects');
+    return view('projects.projects');
 })->name('projects');
 Route::get('/tasks', function(){
-    return view('tasks');
+    return view('tasks.tasks');
 })->name('tasks');
+
+//create temporary
+Route::get('/users-create', function(){
+    return view('users.create');
+})->name('usersCreate');
+Route::get('/clients-create', function(){
+    return view('clients.create');
+})->name('clientsCreate');
+Route::get('/projects-create', function(){
+    return view('projects.create');
+})->name('projectsCreate');
+Route::get('/tasks-create', function(){
+    return view('tasks.create');
+})->name('tasksCreate');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

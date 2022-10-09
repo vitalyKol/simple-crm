@@ -1,6 +1,6 @@
 @extends('layouts.layout')
-@section('button', 'Create user')
 @section('content')
+    <x-button-create link="#">Create user</x-button-create>
     <div class="card">
         <div class="card-header">
             Users list
