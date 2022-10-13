@@ -15,6 +15,7 @@
                     <th scope="col">Assigned user</th>
                     <th scope="col">Price</th>
                     <th scope="col">Deadline</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,10 @@
                     <td>Mark</td>
                     <td>99999$</td>
                     <td>10.05.2022</td>
+                    <td>
+                        <x-button-edit link="#"/>
+                        <x-button-delete link="#"/>
+                    </td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -33,6 +38,10 @@
                     <td>Ted</td>
                     <td>5555$</td>
                     <td>20.08.2022</td>
+                    <td>
+                        <x-button-edit link="#"/>
+                        <x-button-delete link="#"/>
+                    </td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -41,6 +50,10 @@
                     <td>Stive</td>
                     <td>100$</td>
                     <td>01.01.2023</td>
+                    <td>
+                        <x-button-edit link="#"/>
+                        <x-button-delete link="#"/>
+                    </td>
                 </tr>
                 </tbody>
             </table>

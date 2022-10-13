@@ -14,6 +14,7 @@
                     <th scope="col">Status</th>
                     <th scope="col">Deadline</th>
                     <th scope="col">Assigned user</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -23,6 +24,10 @@
                     <td>Open</td>
                     <td>10.05.2022</td>
                     <td>Mark</td>
+                    <td>
+                        <x-button-edit link="#"/>
+                        <x-button-delete link="#"/>
+                    </td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
@@ -30,6 +35,10 @@
                     <td>Close</td>
                     <td>20.08.2022</td>
                     <td>Mugen</td>
+                    <td>
+                        <x-button-edit link="#"/>
+                        <x-button-delete link="#"/>
+                    </td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -37,6 +46,10 @@
                     <td>Verification</td>
                     <td>01.01.2023</td>
                     <td>Boris</td>
+                    <td>
+                        <x-button-edit link="#"/>
+                        <x-button-delete link="#"/>
+                    </td>
                 </tr>
                 </tbody>
             </table>
