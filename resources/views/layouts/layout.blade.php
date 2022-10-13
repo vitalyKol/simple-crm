@@ -18,10 +18,10 @@
             <h5 class="text-center left_menu_title">CRM</h5>
             <ul class="left_menu_list">
                 <li><a href="{{ route('dashboard') }}"><i class="fa fa-list-alt" aria-hidden="true"></i> Dashboard</a></li>
-                <li><a href="{{route('users')}}"><i class="fa fa-user" aria-hidden="true"></i> Users</a></li>
-                <li><a href="{{route('clients')}}"><i class="fa fa-address-card" aria-hidden="true"></i> Clients</a></li>
-                <li><a href="{{route('projects')}}"><i class="fa fa-folder-open" aria-hidden="true"></i> Projects</a></li>
-                <li><a href="{{route('tasks')}}"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a></li>
+                <li><a href="{{route('users.index')}}"><i class="fa fa-user" aria-hidden="true"></i> Users</a></li>
+                <li><a href="{{route('clients.index')}}"><i class="fa fa-address-card" aria-hidden="true"></i> Clients</a></li>
+                <li><a href="{{route('projects.index')}}"><i class="fa fa-folder-open" aria-hidden="true"></i> Projects</a></li>
+                <li><a href="{{route('tasks.index')}}"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-lg-10 right_block">

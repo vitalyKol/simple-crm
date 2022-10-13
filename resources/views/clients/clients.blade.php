@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <x-button-create link="{{route('clientsCreate')}}">Create client</x-button-create>
+    <x-button-create link="{{route('clients.create')}}">Create client</x-button-create>
 
 
     <div class="card">

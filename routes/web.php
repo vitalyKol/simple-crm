@@ -16,35 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard');
 });
-Route::get('/main', function(){
-    return view('main');
-});
-Route::get('/users', function(){
-    return view('users.users');
-})->name('users');
-Route::get('/clients', function(){
-    return view('clients.clients');
-})->name('clients');
-Route::get('/projects', function(){
-    return view('projects.projects');
-})->name('projects');
-Route::get('/tasks', function(){
-    return view('tasks.tasks');
-})->name('tasks');
 
-//create temporary
-Route::get('/users-create', function(){
-    return view('users.create');
-})->name('usersCreate');
-Route::get('/clients-create', function(){
-    return view('clients.create');
-})->name('clientsCreate');
-Route::get('/projects-create', function(){
-    return view('projects.create');
-})->name('projectsCreate');
-Route::get('/tasks-create', function(){
-    return view('tasks.create');
-})->name('tasksCreate');
+Route::resource('users', \App\Http\Controllers\UserController::class);
+Route::resource('clients', \App\Http\Controllers\ClientController::class);
+Route::resource('projects', \App\Http\Controllers\ProjectController::class);
+Route::resource('tasks', \App\Http\Controllers\TaskController::class);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

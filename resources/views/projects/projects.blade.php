@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <x-button-create link="#">Create project</x-button-create>
+    <x-button-create link="{{route('projects.create')}}">Create project</x-button-create>
     <div class="card">
         <div class="card-header">
             Projects list

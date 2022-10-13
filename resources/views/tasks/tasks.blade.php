@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <x-button-create link="#">Create task</x-button-create>
+    <x-button-create link="{{route('tasks.create')}}">Create task</x-button-create>
     <div class="card">
         <div class="card-header">
             Tasks list

@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <x-button-create link="#">Create user</x-button-create>
+    <x-button-create link="{{route('users.create')}}">Create user</x-button-create>
     <div class="card">
         <div class="card-header">
             Users list
@@ -23,8 +23,8 @@
                     <td>Otto</td>
                     <td>CEO</td>
                     <td>
-                        <x-button-edit link="#"/>
-                        <x-button-delete link="#"/>
+                        <x-button-edit link="{{route('users.edit', ['user' => 0])}}"/>
+                        <x-button-delete link="{{route('users.destroy', ['user' => 0])}}"/>
                     </td>
                 </tr>
                 <tr>
@@ -33,8 +33,8 @@
                     <td>Thornton</td>
                     <td>CTO</td>
                     <td>
-                        <x-button-edit link="#"/>
-                        <x-button-delete link="#"/>
+                        <x-button-edit link="{{route('users.edit', ['user' => 1])}}"/>
+                        <x-button-delete link="{{route('users.destroy', ['user' => 1])}}"/>
                     </td>
                 </tr>
                 <tr>
@@ -43,8 +43,8 @@
                     <td>Green</td>
                     <td>Manager</td>
                     <td>
-                        <x-button-edit link="#"/>
-                        <x-button-delete link="#"/>
+                        <x-button-edit link="{{route('users.edit', ['user' => 2])}}"/>
+                        <x-button-delete link="{{route('users.destroy', ['user' => 2])}}"/>
                     </td>
                 </tr>
                 </tbody>
