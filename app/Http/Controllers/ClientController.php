@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -24,6 +26,7 @@ class ClientController extends Controller
     public function create()
     {
         return view('clients.create');
+
     }
 
     /**
@@ -34,7 +37,15 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'company' => ['required', 'string'],
+            'number' => ['required', 'string'],
+            'activity' => ['required', 'string'],
+            'assigned' => ['required', 'integer'],
+        ]);
+        var_dump($validated);
+
+       // Client::store($request->post());
     }
 
     /**

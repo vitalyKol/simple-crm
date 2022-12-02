@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Usercrm extends Model
 {
     use HasFactory;
+
+    protected $table = 'userscrm';
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'position',
+    ];
+
+    public $timestamps = false;
 }

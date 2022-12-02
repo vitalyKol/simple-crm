@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'company',
+        'number',
+        'activity',
+        'user_id',
+    ];
+
+    public $timestamps = false;
+
+    static function store($data){
+
+    }
 }
