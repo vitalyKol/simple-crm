@@ -21,4 +21,5 @@ class Client extends Model
     static function store($data){
         self::create($data);
     }
+
 }

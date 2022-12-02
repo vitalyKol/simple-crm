@@ -17,4 +17,5 @@ class Usercrm extends Model
     ];
 
     public $timestamps = false;
+
 }

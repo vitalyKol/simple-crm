@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Usercrm;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('clients.clients');
+        $clients = Client::all();
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('clients.clients', compact('clients', 'users'));
     }
 
     /**
@@ -92,6 +95,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        var_dump("DELETE - $id");
     }
 }

@@ -3,7 +3,6 @@
 @section('content')
     <x-button-create link="{{route('clients.create')}}">Create client</x-button-create>
 
-
     <div class="card">
         <div class="card-header">
             Clients list
@@ -21,39 +20,27 @@
                 </tr>
                 </thead>
                 <tbody>
+                @if(!$clients)
+                    <p>Add any company</p>>
+                @else
+                @foreach($clients as $client)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Facebook</td>
-                    <td>888-888-555</td>
-                    <td>Media</td>
-                    <td>Mark</td>
+                    <th scope="row">{{$client->id}}</th>
+                    <td>{{$client->company}}</td>
+                    <td>{{$client->number}}</td>
+                    <td>{{$client->activity}}</td>
+                    @foreach($users as $user)
+                        @if($user->id == $client->user_id)
+                            <td>{{$user->first_name}}</td>
+                        @endif
+                    @endforeach
                     <td>
-                        <x-button-edit link="{{route('clients.edit', '1')}}"/>
-                        <x-button-delete link="#"/>
+                        <x-button-edit link="{{route('clients.edit', $client->id)}}"/>
+                        <x-button-delete link="{{route('clients.destroy', $client->id)}}"/>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Disnay</td>
-                    <td>789-456-123</td>
-                    <td>Entertainment</td>
-                    <td>Jacob</td>
-                    <td>
-                        <x-button-edit link="#"/>
-                        <x-button-delete link="#"/>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Burger king</td>
-                    <td>75-75</td>
-                    <td>Fast-Food</td>
-                    <td>Larry the Bird</td>
-                    <td>
-                        <x-button-edit link="#"/>
-                        <x-button-delete link="#"/>
-                    </td>
-                </tr>
+                @endforeach
+                @endif
                 </tbody>
             </table>
         </div>
