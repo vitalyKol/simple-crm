@@ -15,7 +15,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-lg-2 left_menu">
-            <h5 class="text-center left_menu_title">CRM</h5>
+            <h5 class="text-center left_menu_title"><a href="{{route('main')}}">CRM</a></h5>
             <ul class="left_menu_list">
                 <li><a href="{{ route('dashboard') }}"><i class="fa fa-list-alt" aria-hidden="true"></i> Dashboard</a></li>
                 <li><a href="{{route('users.index')}}"><i class="fa fa-user" aria-hidden="true"></i> Users</a></li>

@@ -10,7 +10,9 @@
                     </div>
                     <div class="card-body text-center">
                         <i class="fa fa-user fa-6x" aria-hidden="true"></i><br>
-                        <button class="btn btn-success mt-2 mb-2">Create user</button>
+                        <a href="{{route('users.create')}}">
+                            <button class="btn btn-success mt-2 mb-2">Create user</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -21,7 +23,9 @@
                     </div>
                     <div class="card-body text-center">
                         <i class="fa fa-address-card fa-6x" aria-hidden="true"></i><br>
-                        <button class="btn btn-success mt-2 mb-2">Create client</button>
+                        <a href="{{route('clients.create')}}">
+                            <button class="btn btn-success mt-2 mb-2">Create client</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -34,7 +38,9 @@
                     </div>
                     <div class="card-body text-center">
                         <i class="fa fa-folder-open fa-6x" aria-hidden="true"></i><br>
-                        <button class="btn btn-success mt-2 mb-2">Create project</button>
+                        <a href="{{route('projects.create')}}">\
+                            <button class="btn btn-success mt-2 mb-2">Create project</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -45,7 +51,9 @@
                     </div>
                     <div class="card-body text-center">
                         <i class="fa fa-tasks fa-6x" aria-hidden="true"></i><br>
-                        <button class="btn btn-success mt-2 mb-2">Create task</button>
+                        <a href="{{route('tasks.create')}}">
+                            <button class="btn btn-success mt-2 mb-2">Create task</button>
+                        </a>
                     </div>
                 </div>
             </div>

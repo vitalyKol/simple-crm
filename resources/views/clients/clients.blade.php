@@ -16,7 +16,7 @@
                     <th scope="col">Company</th>
                     <th scope="col">Number</th>
                     <th scope="col">Activity</th>
-                    <th scope="col">Appointed</th>
+                    <th scope="col">Assigned user</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -28,7 +28,7 @@
                     <td>Media</td>
                     <td>Mark</td>
                     <td>
-                        <x-button-edit link="#"/>
+                        <x-button-edit link="{{route('clients.edit', '1')}}"/>
                         <x-button-delete link="#"/>
                     </td>
                 </tr>
