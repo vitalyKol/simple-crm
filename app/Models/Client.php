@@ -19,6 +19,6 @@ class Client extends Model
     public $timestamps = false;
 
     static function store($data){
-
+        self::create($data);
     }
 }

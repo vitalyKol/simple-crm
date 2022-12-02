@@ -22,15 +22,15 @@
                 </div>
                 <div class="mb-3">
                     <label for="number" class="form-label">Number</label>
-                    <input type="text" class="form-control" id="number" name="number" placeholder="888-888-888">
+                    <input type="text" class="form-control" id="number" name="number" placeholder="123456789">
                 </div>
                 <div class="mb-3">
                     <label for="activity" class="form-label">Activity</label>
                     <input type="text" class="form-control" id="activity" name="activity" placeholder="Media">
                 </div>
                 <div class="mb-3">
-                    <label for="assigned" class="form-label">Assigned user</label>
-                    <input type="text" class="form-control" id="assigned" name="assigned" placeholder="Mark">
+                    <label for="user_id" class="form-label">Assigned user</label>
+                    <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Mark">
                 </div>
                 <div class="mb-3">
                     <input type="submit" class="btn btn-primary" value="Save">

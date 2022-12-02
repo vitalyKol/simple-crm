@@ -39,13 +39,14 @@ class ClientController extends Controller
     {
         $validated = $request->validate([
             'company' => ['required', 'string'],
-            'number' => ['required', 'string'],
+            'number' => ['required', 'numeric'],
             'activity' => ['required', 'string'],
-            'assigned' => ['required', 'integer'],
+            'user_id' => ['required', 'integer'],
         ]);
-        var_dump($validated);
 
-       // Client::store($request->post());
+//        var_dump($validated);
+        Client::store($validated);
+        return redirect()->route('clients.index');
     }
 
     /**
