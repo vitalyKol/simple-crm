@@ -28,7 +28,8 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('clients.create', compact( 'users'));
 
     }
 
@@ -44,8 +45,9 @@ class ClientController extends Controller
             'company' => ['required', 'string'],
             'number' => ['required', 'numeric'],
             'activity' => ['required', 'string'],
-            'user_id' => ['required', 'integer'],
+            'user_id' => ['required'],
         ]);
+        $validated['user_id'] = (int)$validated['user_id'][0];
 
 //        var_dump($validated);
         Client::store($validated);
@@ -71,8 +73,9 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-
-        return view('clients.edit');
+        $client = Client::find($id);
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('clients.edit', compact('client', 'users'));
     }
 
     /**
@@ -84,7 +87,18 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+//        var_dump($request->post());
+        $validated = $request->validate([
+            'company' => ['required', 'string'],
+            'number' => ['required', 'numeric'],
+            'activity' => ['required', 'string'],
+            'user_id' => ['required'],
+        ]);
+        $validated['user_id'] = (int)$validated['user_id'][0];
+
+        $client = Client::find($id);
+        $client->update($validated);
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -95,6 +109,8 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        var_dump("DELETE - $id");
+        $client = Client::find($id);
+        $client->delete();
+        return redirect()->route('clients.index');
     }
 }

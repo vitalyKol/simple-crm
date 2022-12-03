@@ -36,7 +36,7 @@
                     @endforeach
                     <td>
                         <x-button-edit link="{{route('clients.edit', $client->id)}}"/>
-                        <x-button-delete link="{{route('clients.destroy', $client->id)}}"/>
+                        <x-button-delete link="{{route('clients.destroy', [$client->id])}}"/>
                     </td>
                 </tr>
                 @endforeach

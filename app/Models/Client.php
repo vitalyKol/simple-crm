@@ -22,4 +22,5 @@ class Client extends Model
         self::create($data);
     }
 
+
 }
