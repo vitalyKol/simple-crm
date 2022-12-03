@@ -14,26 +14,25 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{route('clients.update', $client->id)}}" method="post">
+            <form action="{{route('tasks.update', $task->id)}}" method="post">
                 @csrf
                 @method("PUT")
                 <div class="mb-3">
-                    <label for="company" class="form-label">Name of company</label>
-                    <input type="text" class="form-control" id="company" name="company" placeholder="Google" value="{{$client->company}}">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Do something" value="{{$task->title}}">
                 </div>
                 <div class="mb-3">
-                    <label for="number" class="form-label">Number</label>
-                    <input type="text" class="form-control" id="number" name="number" placeholder="888-888-888" value="{{$client->number}}">
+                    <x-select-status value="{{$task->status}}" />
                 </div>
                 <div class="mb-3">
-                    <label for="activity" class="form-label">Activity</label>
-                    <input type="text" class="form-control" id="activity" name="activity" placeholder="Media" value="{{$client->activity}}">
+                    <label for="deadline" class="form-label">Deadline</label>
+                    <input type="date" class="form-control" id="deadline" name="deadline" value="{{$task->deadline}}">
                 </div>
                 <div class="mb-3">
                     <label for="assigned" class="form-label">Assigned user</label>
                     <select class="form-select" id="assigned" name="user_id[]">
                         @foreach($users as $user)
-                            @if($user->id === $client->user_id)
+                            @if($user->id === $task->user_id)
                                 <option value="{{$user->id}}" selected>{{$user->first_name}}</option>
                                 @continue
                             @endif

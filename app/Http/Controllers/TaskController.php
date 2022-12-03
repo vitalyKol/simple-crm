@@ -48,10 +48,7 @@ class TaskController extends Controller
         $validated['status'] = (int)$validated['status'][0];
         $validated['user_id'] = (int)$validated['user_id'][0];
 
-        var_dump($validated);
-
-        die;
-        Task::store($validated);
+        Task::create($validated);
         return redirect()->route('tasks.index');
     }
 
@@ -74,7 +71,9 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        return view('tasks.edit');
+        $task = Task::find($id);
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('tasks.edit', compact('task','users'));
     }
 
     /**
@@ -86,7 +85,18 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string'],
+            'status' => ['required'],
+            'deadline' => ['date'],
+            'user_id' => ['required'],
+        ]);
+        $validated['status'] = (int)$validated['status'][0];
+        $validated['user_id'] = (int)$validated['user_id'][0];
+
+        $task = Task::find($id);
+        $task->update($validated);
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -97,6 +107,8 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Task::find($id);
+        $task->delete();
+        return redirect()->route('tasks.index');
     }
 }

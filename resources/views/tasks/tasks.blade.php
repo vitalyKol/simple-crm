@@ -18,7 +18,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if(!isset($task))
+                @if(!isset($tasks))
                     <tr>
                         <td colspan="6">Add some tasks</td>
                     </tr>
