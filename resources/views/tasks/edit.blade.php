@@ -2,7 +2,7 @@
 @section('content')
     <div class="card mt-3">
         <div class="card-header">
-            Create client
+            Edit task
         </div>
         <div class="card-body">
             @if ($errors->any())

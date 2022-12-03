@@ -3,7 +3,7 @@
 
     <div class="card mt-3">
         <div class="card-header">
-            Create client
+            Create task
         </div>
         <div class="card-body">
             @if ($errors->any())
@@ -15,35 +15,22 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{route('clients.store')}}" method="POST">
+            <form action="{{route('tasks.store')}}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="company" class="form-label">Name of company</label>
-                    <input type="text" class="form-control" id="company" name="company" placeholder="Google"
-{{--                        @if(isset(old('company')))--}}
-                               value = "{{old('company')}}"
-{{--                        @endif--}}
-                    >
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Do something" value = "{{old('title')}}">
                 </div>
                 <div class="mb-3">
-                    <label for="number" class="form-label">Number</label>
-                    <input type="text" class="form-control" id="number" name="number" placeholder="123456789"
-{{--                        @if(isset(old('number')))--}}
-                               value = "{{old('number')}}"
-{{--                        @endif--}}
-                    >
+                    <x-select-status value="{{old('status')[0]??1}}" />
                 </div>
                 <div class="mb-3">
-                    <label for="activity" class="form-label">Activity</label>
-                    <input type="text" class="form-control" id="activity" name="activity" placeholder="Media"
-{{--                        @if(isset(old('activity')))--}}
-                               value = "{{old('activity')}}"
-{{--                        @endif--}}
-                    >
+                    <label for="deadline" class="form-label">Deadline</label>
+                    <input type="date" class="form-control" id="deadline" name="deadline" value = "{{old('deadline')}}" >
                 </div>
                 <div class="mb-3">
                     <label for="user_id" class="form-label">Assigned user</label>
-                    <select class="form-select" id="assigned" name="user_id[]">
+                    <select class="form-select" id="user_id" name="user_id[]">
                         @foreach($users as $user)
                             <option value="{{$user->id}}">{{$user->first_name}}</option>
                         @endforeach

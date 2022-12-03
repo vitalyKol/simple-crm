@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
+use App\Models\Usercrm;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -13,7 +15,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('tasks.tasks');
+        $tasks = Task::all();
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('tasks.tasks', compact('tasks', 'users'));
     }
 
     /**
@@ -23,7 +27,8 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('tasks.create');
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('tasks.create', compact('users'));
     }
 
     /**
@@ -34,7 +39,20 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string'],
+            'status' => ['required'],
+            'deadline' => ['date'],
+            'user_id' => ['required'],
+        ]);
+        $validated['status'] = (int)$validated['status'][0];
+        $validated['user_id'] = (int)$validated['user_id'][0];
+
+        var_dump($validated);
+
+        die;
+        Task::store($validated);
+        return redirect()->route('tasks.index');
     }
 
     /**
