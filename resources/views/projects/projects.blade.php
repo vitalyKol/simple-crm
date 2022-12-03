@@ -19,42 +19,34 @@
                 </tr>
                 </thead>
                 <tbody>
+                @if(!isset($projects))
+                    <tr>
+                        <td colspan="7">Add any projects</td>
+                    </tr>
+                @else
+                @foreach($projects as $project)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Add one function for user's profile</td>
-                    <td>Facebook</td>
-                    <td>Mark</td>
-                    <td>99999$</td>
-                    <td>10.05.2022</td>
+                    <th scope="row">{{$project->id}}</th>
+                    <td>{{$project->title}}</td>
+                    @foreach($clients as $client)
+                        @if($client->id === $project->clients_id)
+                            <td>{{$client->company}}</td>
+                        @endif
+                    @endforeach
+                    @foreach($users as $user)
+                        @if($user->id === $project->user_id)
+                            <td>{{$user->first_name}}</td>
+                        @endif
+                    @endforeach
+                    <td>{{$project->price}}</td>
+                    <td>{{$project->deadline}}</td>
                     <td>
-                        <x-button-edit link="#"/>
-                        <x-button-delete link="#"/>
+                        <x-button-edit link="{{route('projects.edit', $project->id)}}"/>
+                        <x-button-delete link="{{route('projects.destroy', $project->id)}}"/>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Create animation for new cartoon</td>
-                    <td>Disnay</td>
-                    <td>Ted</td>
-                    <td>5555$</td>
-                    <td>20.08.2022</td>
-                    <td>
-                        <x-button-edit link="#"/>
-                        <x-button-delete link="#"/>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Develop marketing plan for new burger</td>
-                    <td>Burger king</td>
-                    <td>Stive</td>
-                    <td>100$</td>
-                    <td>01.01.2023</td>
-                    <td>
-                        <x-button-edit link="#"/>
-                        <x-button-delete link="#"/>
-                    </td>
-                </tr>
+                @endforeach
+                @endif
                 </tbody>
             </table>
         </div>

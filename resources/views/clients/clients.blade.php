@@ -20,8 +20,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if(!$clients)
-                    <p>Add any company</p>>
+                @if(!isset($clients))
+                    <tr>
+                        <td colspan="6">Add any company</td>
+                    </tr>
                 @else
                 @foreach($clients as $client)
                 <tr>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Project;
+use App\Models\Usercrm;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -14,8 +16,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-
-        return view('projects.projects');
+        $projects = Project::all();
+        $clients = Client::all(['id', 'company']);
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('projects.projects', compact('clients', 'users', 'projects'));
     }
 
     /**
@@ -25,7 +29,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $clients = Client::all(['id', 'company']);
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('projects.create', compact('clients', 'users'));
     }
 
     /**
@@ -36,7 +42,18 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string'],
+            'clients_id' => ['required'],
+            'user_id' => ['required'],
+            'price' => ['required', 'numeric'],
+            'deadline' => ['date'],
+        ]);
+        $validated['clients_id'] = (int)$validated['clients_id'][0];
+        $validated['user_id'] = (int)$validated['user_id'][0];
+
+        Project::create($validated);
+        return redirect()->route('projects.index');
     }
 
     /**
@@ -58,7 +75,10 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        return view('projects.edit');
+        $project = Project::find($id);
+        $clients = Client::all(['id', 'company']);
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('projects.edit', compact('clients', 'users', 'project'));
     }
 
     /**
@@ -70,7 +90,19 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required', 'string'],
+            'clients_id' => ['required'],
+            'user_id' => ['required'],
+            'price' => ['required', 'numeric'],
+            'deadline' => ['date'],
+        ]);
+        $validated['clients_id'] = (int)$validated['clients_id'][0];
+        $validated['user_id'] = (int)$validated['user_id'][0];
+
+        $project = Project::find($id);
+        $project->update($validated);
+        return redirect()->route('projects.index');
     }
 
     /**
@@ -81,6 +113,8 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Project::find($id);
+        $project->delete();
+        return redirect()->route('projects.index');
     }
 }

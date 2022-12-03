@@ -45,7 +45,7 @@ class ClientController extends Controller
             'company' => ['required', 'string'],
             'number' => ['required', 'numeric'],
             'activity' => ['required', 'string'],
-            'user_id' => ['required'],
+            'user_id' => ['required', 'integer'],
         ]);
         $validated['user_id'] = (int)$validated['user_id'][0];
 
