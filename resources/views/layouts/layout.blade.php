@@ -14,19 +14,21 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-lg-2 left_menu">
+        <div class="col-sm-3 col-lg-2 left_menu" id="side_menu">
             <h5 class="text-center left_menu_title"><a href="{{route('main')}}">CRM</a></h5>
             <ul class="left_menu_list">
-                <li><a href="{{ route('dashboard') }}"><i class="fa fa-list-alt" aria-hidden="true"></i> Dashboard</a></li>
-                <li><a href="{{route('users.index')}}"><i class="fa fa-user" aria-hidden="true"></i> Users</a></li>
-                <li><a href="{{route('clients.index')}}"><i class="fa fa-address-card" aria-hidden="true"></i> Clients</a></li>
-                <li><a href="{{route('projects.index')}}"><i class="fa fa-folder-open" aria-hidden="true"></i> Projects</a></li>
-                <li><a href="{{route('tasks.index')}}"><i class="fa fa-tasks" aria-hidden="true"></i> Tasks</a></li>
+                <li><a href="{{ route('dashboard') }}"><i class="fa fa-list-alt" aria-hidden="true"></i><span class="text_side_menu">Dashboard</span></a></li>
+                <li><a href="{{route('users.index')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="text_side_menu">Users</span></a></li>
+                <li><a href="{{route('clients.index')}}"><i class="fa fa-address-card" aria-hidden="true"></i><span class="text_side_menu">Clients</span></a></li>
+                <li><a href="{{route('projects.index')}}"><i class="fa fa-folder-open" aria-hidden="true"></i><span class="text_side_menu">Projects</span></a></li>
+                <li><a href="{{route('tasks.index')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="text_side_menu">Tasks</span></a></li>
             </ul>
         </div>
-        <div class="col-sm-9 col-lg-10 right_block">
+        <div class="col right_block">
             <div class="top_line">
-                <i class="fa fa-bars" aria-hidden="true"></i>
+                <span id="switch_sidebar">
+                    <i  class="fa fa-bars" aria-hidden="true"></i>
+                </span>
                 <div class="top_line_login">
                     @if (Route::has('login'))
                         @auth
@@ -53,5 +55,6 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="{{asset('/js/script.js')}}"></script>
 </body>
 </html>

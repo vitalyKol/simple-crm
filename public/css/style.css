@@ -54,3 +54,17 @@ a i{
     text-decoration: underline;
 }
 
+#switch_sidebar:hover{
+    color: #007bff;
+    cursor: pointer;
+    border-bottom: 1px dotted #2d3748;
+}
+.switch_menu{
+    width: 70px;
+    overflow: hidden;
+    color:red;
+}
+text_side_menu{
+    animation: shadow 2s infinite ease-in-out;
+}
+
