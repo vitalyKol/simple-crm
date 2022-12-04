@@ -2,7 +2,7 @@
 @section('content')
     <div class="card mt-3">
         <div class="card-header">
-            Create client
+            Edit user
         </div>
         <div class="card-body">
             @if ($errors->any())
@@ -14,32 +14,20 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{route('clients.update', $client->id)}}" method="post">
+            <form action="{{route('users.update', $user->id)}}" method="post">
                 @csrf
                 @method("PUT")
                 <div class="mb-3">
-                    <label for="company" class="form-label">Name of company</label>
-                    <input type="text" class="form-control" id="company" name="company" placeholder="Google" value="{{$client->company}}">
+                    <label for="first_name" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Mark" value = "{{$user->first_name}}">
                 </div>
                 <div class="mb-3">
-                    <label for="number" class="form-label">Number</label>
-                    <input type="text" class="form-control" id="number" name="number" placeholder="888-888-888" value="{{$client->number}}">
+                    <label for="last_name" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Smith" value = "{{$user->last_name}}" >
                 </div>
                 <div class="mb-3">
-                    <label for="activity" class="form-label">Activity</label>
-                    <input type="text" class="form-control" id="activity" name="activity" placeholder="Media" value="{{$client->activity}}">
-                </div>
-                <div class="mb-3">
-                    <label for="assigned" class="form-label">Assigned user</label>
-                    <select class="form-select" id="assigned" name="user_id[]">
-                        @foreach($users as $user)
-                            @if($user->id === $client->user_id)
-                                <option value="{{$user->id}}" selected>{{$user->first_name}}</option>
-                                @continue
-                            @endif
-                            <option value="{{$user->id}}">{{$user->first_name}}</option>
-                        @endforeach
-                    </select>
+                    <label for="position" class="form-label">Position</label>
+                    <input type="text" class="form-control" id="position" name="position" placeholder="CEO" value = "{{$user->position}}">
                 </div>
                 <div class="mb-3">
                     <input type="submit" class="btn btn-primary" value="Save">

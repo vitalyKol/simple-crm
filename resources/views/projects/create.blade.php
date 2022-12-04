@@ -18,7 +18,7 @@
             <form action="{{route('projects.store')}}" method="POST">
                 @csrf
                 <div class="mb-3">
-                    <label for="title" class="form-label">Name of company</label>
+                    <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Some project" value = "{{old('title')}}">
                 </div>
                 <div class="mb-3">
@@ -42,8 +42,8 @@
                     <input type="text" class="form-control" id="price" name="price" placeholder="9999" value = "{{old('number')}}">
                 </div>
                 <div class="mb-3">
-                    <label for="deadline" class="form-label">Activity</label>
-                    <input type="date" class="form-control" id="deadline" name="deadline" placeholder="10.12.15" value = "{{old('activity')}}">
+                    <label for="deadline" class="form-label">Deadline</label>
+                    <input type="date" class="form-control" id="deadline" name="deadline" value = "{{old('activity')}}">
                 </div>
                 <div class="mb-3">
                     <input type="submit" class="btn btn-primary" value="Save">

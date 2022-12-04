@@ -2,7 +2,7 @@
 @section('content')
     <div class="card mt-3">
         <div class="card-header">
-            Create client
+            Create project
         </div>
         <div class="card-body">
             @if ($errors->any())
@@ -18,11 +18,11 @@
                 @csrf
                 @method("PUT")
                 <div class="mb-3">
-                    <label for="title" class="form-label">Name of company</label>
+                    <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" name="title" placeholder="Do something" value="{{$project->title}}">
                 </div>
                 <div class="mb-3">
-                    <label for="clients_id" class="form-label">Assigned user</label>
+                    <label for="clients_id" class="form-label">Assigned client</label>
                     <select class="form-select" id="clients_id" name="clients_id[]">
                         @foreach($clients as $client)
                             @if($client->id === $project->clients_id)
@@ -47,7 +47,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="price" class="form-label">Price $</label>
-                    <input type="text" class="form-control" id="price" name="price" placeholder="9999" value="{{$project->price}}">
+                    <input type="number" class="form-control" id="price" name="price" placeholder="9999" value="{{$project->price}}">
                 </div>
                 <div class="mb-3">
                     <label for="deadline" class="form-label">Deadline</label>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Usercrm;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.users');
+        $users = Usercrm::all();
+        return view('users.users', compact('users'));
     }
 
     /**
@@ -34,7 +36,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'first_name' => ['required', 'string'],
+            'last_name' => ['required', 'string'],
+            'position' => ['required', 'string'],
+        ]);
+
+        Usercrm::create($validated);
+        return redirect()->route('users.index');
     }
 
     /**
@@ -56,7 +65,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('users.edit');
+        $user = Usercrm::find($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -68,7 +78,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'first_name' => ['required', 'string'],
+            'last_name' => ['required', 'string'],
+            'position' => ['string'],
+        ]);
+
+        $user = Usercrm::find($id);
+        $user->update($validated);
+        return redirect()->route('users.index');
     }
 
     /**
@@ -79,6 +97,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = Usercrm::find($id);
+        $user->delete();
+        return redirect()->route('users.index');
     }
 }
