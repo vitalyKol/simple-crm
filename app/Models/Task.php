@@ -17,5 +17,11 @@ class Task extends Model
     ];
 
     public $timestamps = false;
+    static public array $options = [
+        1 => 'Open',
+        2 => 'Wait',
+        3 => 'Close',
+        4 => 'Cancel',
+    ];
 
 }

@@ -27,7 +27,7 @@
                     <tr>
                         <th scope="row">{{$task->id}}</th>
                         <td>{{$task->title}}</td>
-                        <td>{{$task->status}}</td>
+                        <td>{{$options[$task->status]}}</td>
                         <td>{{$task->deadline}}</td>
                         @foreach($users as $user)
                             @if($user->id === $task->user_id)

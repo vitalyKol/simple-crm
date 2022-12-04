@@ -15,9 +15,10 @@ class TaskController extends Controller
      */
     public function index()
     {
+        $options = Task::$options;
         $tasks = Task::all();
         $users = Usercrm::all(['id', 'first_name']);
-        return view('tasks.tasks', compact('tasks', 'users'));
+        return view('tasks.tasks', compact('tasks', 'users', 'options'));
     }
 
     /**

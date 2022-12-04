@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Task;
 use Illuminate\View\Component;
 
 class SelectStatus extends Component
@@ -15,12 +16,7 @@ class SelectStatus extends Component
      */
     public function __construct($value)
     {
-        $this->options = [
-         1 => 'Open',
-         2 => 'Wait',
-         3 => 'Close',
-         4 => 'Cancel',
-        ];
+        $this->options = Task::$options;
         if(is_array($value)){
             $this->value = (int)$value['status'][0];
         }else{
@@ -35,7 +31,7 @@ class SelectStatus extends Component
      */
     public function render()
     {
-        $options = $this->options;
-        return view('components.select-status', compact('options'));
+       // $options = $this->options;
+        return view('components.select-status');//compact('options')
     }
 }
