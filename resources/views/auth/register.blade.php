@@ -2,9 +2,10 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+{{--                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />--}}
             </a>
         </x-slot>
+        <h1 class="text-center">CRM</h1>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -50,14 +51,11 @@
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="text-center mt-5">
+                <input type="submit" class="d-block btn btn-primary w-100 mt-2" value="Registration">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
                 </a>
-
-                <x-primary-button class="ml-4">
-                    {{ __('Register') }}
-                </x-primary-button>
             </div>
         </form>
     </x-auth-card>
