@@ -62,9 +62,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Project $project)
     {
-        //
+        return redirect()->route('projects.index');
     }
 
     /**
@@ -73,9 +73,8 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        $project = Project::find($id);
         $clients = Client::all(['id', 'company']);
         $users = Usercrm::all(['id', 'first_name']);
         return view('projects.edit', compact('clients', 'users', 'project'));
@@ -88,7 +87,7 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Project $project)
     {
         $validated = $request->validate([
             'title' => ['required', 'string'],
@@ -100,7 +99,6 @@ class ProjectController extends Controller
         $validated['clients_id'] = (int)$validated['clients_id'][0];
         $validated['user_id'] = (int)$validated['user_id'][0];
 
-        $project = Project::find($id);
         $project->update($validated);
         return redirect()->route('projects.index');
     }
@@ -111,9 +109,8 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        $project = Project::find($id);
         $project->delete();
         return redirect()->route('projects.index');
     }

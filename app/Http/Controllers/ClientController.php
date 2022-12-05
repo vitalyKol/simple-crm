@@ -45,11 +45,10 @@ class ClientController extends Controller
             'company' => ['required', 'string'],
             'number' => ['required', 'numeric'],
             'activity' => ['required', 'string'],
-            'user_id' => ['required', 'integer'],
+            'user_id' => ['required'],
         ]);
         $validated['user_id'] = (int)$validated['user_id'][0];
 
-//        var_dump($validated);
         Client::store($validated);
         return redirect()->route('clients.index');
     }
@@ -60,9 +59,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
-        //
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -71,9 +70,8 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Client $client)
     {
-        $client = Client::find($id);
         $users = Usercrm::all(['id', 'first_name']);
         return view('clients.edit', compact('client', 'users'));
     }
@@ -85,9 +83,8 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Client $client)
     {
-//        var_dump($request->post());
         $validated = $request->validate([
             'company' => ['required', 'string'],
             'number' => ['required', 'numeric'],
@@ -96,7 +93,6 @@ class ClientController extends Controller
         ]);
         $validated['user_id'] = (int)$validated['user_id'][0];
 
-        $client = Client::find($id);
         $client->update($validated);
         return redirect()->route('clients.index');
     }
@@ -107,9 +103,8 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        $client = Client::find($id);
         $client->delete();
         return redirect()->route('clients.index');
     }

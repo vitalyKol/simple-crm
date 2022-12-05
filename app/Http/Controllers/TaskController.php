@@ -59,9 +59,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Task $task)
     {
-        //
+        return redirect()->route('tasks.index');
     }
 
     /**
@@ -70,9 +70,8 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Task $task)
     {
-        $task = Task::find($id);
         $users = Usercrm::all(['id', 'first_name']);
         return view('tasks.edit', compact('task','users'));
     }
@@ -84,7 +83,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Task $task)
     {
         $validated = $request->validate([
             'title' => ['required', 'string'],
@@ -95,7 +94,6 @@ class TaskController extends Controller
         $validated['status'] = (int)$validated['status'][0];
         $validated['user_id'] = (int)$validated['user_id'][0];
 
-        $task = Task::find($id);
         $task->update($validated);
         return redirect()->route('tasks.index');
     }
@@ -106,9 +104,8 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Task $task)
     {
-        $task = Task::find($id);
         $task->delete();
         return redirect()->route('tasks.index');
     }

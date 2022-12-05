@@ -52,9 +52,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Usercrm $user)
     {
-        //
+        return redirect()->route('users.index');
     }
 
     /**
@@ -63,9 +63,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Usercrm $user)
     {
-        $user = Usercrm::find($id);
         return view('users.edit', compact('user'));
     }
 
@@ -76,7 +75,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Usercrm $user)
     {
         $validated = $request->validate([
             'first_name' => ['required', 'string'],
@@ -84,7 +83,6 @@ class UserController extends Controller
             'position' => ['string'],
         ]);
 
-        $user = Usercrm::find($id);
         $user->update($validated);
         return redirect()->route('users.index');
     }
@@ -95,9 +93,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Usercrm $user)
     {
-        $user = Usercrm::find($id);
         $user->delete();
         return redirect()->route('users.index');
     }

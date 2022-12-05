@@ -1,0 +1,358 @@
+[33mcommit 4756105e2908d829667896c8aff6d808fad62fd9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;32maddFront[m[33m)[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Mon Dec 5 12:00:36 2022 +0300
+
+    fix styles for login and register pages
+
+[33mcommit a2500b75a0f0c3d737f91ea694d6349138707a97[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mbasicLogic[m[33m, [m[1;32maddAuth[m[33m)[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Mon Dec 5 10:16:37 2022 +0300
+
+    fix hide/open effect for side menu
+
+[33mcommit 32fbe3ba7aa50e308cd3a00d0d2a70b76a344cf8[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Dec 4 22:17:43 2022 +0300
+
+    add hide/open effect for side menu
+
+[33mcommit 06ca8aa016ba09a7d16307e13ba151f6b3bb1670[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Dec 4 12:51:56 2022 +0300
+
+    fix tasks status
+
+[33mcommit 63ebfeac60e4168fb36ec686e99f26cde776ff0a[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Dec 4 12:35:12 2022 +0300
+
+    add all CRUD functions for users except show
+
+[33mcommit 1bb884b8745dd8898d82ad8475bce579264bd610[m[33m ([m[1;31morigin/basicLogic[m[33m)[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Dec 3 21:37:17 2022 +0300
+
+    add all CRUD functions for tasks except show
+
+[33mcommit 9ecb89f6468df1984d712c74419bedaa7d6c5a75[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Dec 3 21:25:26 2022 +0300
+
+    add component select-status and views for tasks
+
+[33mcommit 9cb1d31aee55ea3326e23c3a543922b86182a059[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Dec 3 19:10:59 2022 +0300
+
+    add all CRUD functions for projects except show
+
+[33mcommit 9a9e82b6e82958735a3ee52ba09156273aa22138[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Dec 3 10:32:51 2022 +0300
+
+    add all CRUD functions for clients except show method
+
+[33mcommit 2ae8e03f7944b3878c397ff76c002a8c61391182[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 20:02:33 2022 +0300
+
+    add output of all clients records
+
+[33mcommit ba6a0c080d5e24acc1f47c639e5648847113745a[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 15:55:30 2022 +0300
+
+    add saving to the bd for clients store method
+
+[33mcommit 69adf0da9820a360b444d982205eef473be5c8ba[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 15:32:39 2022 +0300
+
+    add fillable fields for models and add validation for store method from clientContoller
+
+[33mcommit c099b66501ea3e04630e85c897c6d3e3389a7d8c[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 14:22:27 2022 +0300
+
+    create models for entities and migrations for them
+
+[33mcommit b9bfc1e4c357d164a3519c1a937d57f6d2628a5a[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 14:21:12 2022 +0300
+
+    fix some bags
+
+[33mcommit 093cb7013ea225c6685c03d67647f3fea3be7d01[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 13 19:16:18 2022 +0300
+
+    add resource controllers and routes for them
+
+[33mcommit 3870602b2e5d4db8bfcd284527b30fac45ddebf4[m[33m ([m[1;31morigin/addFront[m[33m)[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 13 18:14:59 2022 +0300
+
+    add view of edit clients and buttons edit and delete
+
+[33mcommit daf6aa7188ec8fca3442876b9bba29d11a2291e9[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Oct 9 09:05:34 2022 +0300
+
+    add view of create client page
+
+[33mcommit d1ee2ed5225ab26e2b377e6d6d866c52d882d727[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Oct 9 08:55:13 2022 +0300
+
+    add new button component
+
+[33mcommit 136b085a2aa5c15d8110b656c2d72618b767b703[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Oct 8 08:25:31 2022 +0300
+
+    add view of dashboard page
+
+[33mcommit b6b03e7a7ce82fa1249e8ca483c039fc3b365d61[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Oct 8 07:45:37 2022 +0300
+
+    add view of tasks page
+
+[33mcommit 0be5cf1bc456aec15bd54ff8c0852af01538cb28[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Oct 8 07:31:59 2022 +0300
+
+    add view of projecs page
+
+[33mcommit d6cf4af7e8649eda2cbb2e094415adbcb39448b9[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Oct 7 22:00:59 2022 +0300
+
+    add view of clients page
+
+[33mcommit 074fac2b8c26b91d61ea94d8e1a2877c5f657b99[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Oct 7 21:49:12 2022 +0300
+
+    add view of users page
+
+[33mcommit a86cbdf9d2080f3c3d91bef86e99bde31f8e0e72[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Oct 7 09:03:51 2022 +0300
+
+    add view of top line
+
+[33mcommit 1fae8ec379f2cb3f2845b62c4f38ed6998097da0[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Oct 7 08:44:40 2022 +0300
+
+    add view of left sidebar
+
+[33mcommit 8eaad7f4dbaa77eb5d1c7704769823c9e3f011ef[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 10:19:32 2022 +0300
+
+    fix syntax
+
+[33mcommit ac5d5d270f7f1790fb8670d48bec5f7d27d72068[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 10:16:14 2022 +0300
+
+    add laravel breeze
+
+[33mcommit 47f7d6c53eb42cb582541b35c47404eb83ea13d9[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 09:18:32 2022 +0300
+
+    add php sniffer
+
+[33mcommit 89587e4e94d42d378e41f33aa080c400687a1ade[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 08:47:41 2022 +0300
+
+    add laravel project
+
+[33mcommit 8766eabbd1b2cfe129f26ed1986d004bf97a0f07[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 08:27:08 2022 +0300
+
+    first commit
+[33mcommit 4756105e2908d829667896c8aff6d808fad62fd9[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;32maddFront[m[33m)[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Mon Dec 5 12:00:36 2022 +0300
+
+    fix styles for login and register pages
+
+[33mcommit a2500b75a0f0c3d737f91ea694d6349138707a97[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mbasicLogic[m[33m, [m[1;32maddAuth[m[33m)[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Mon Dec 5 10:16:37 2022 +0300
+
+    fix hide/open effect for side menu
+
+[33mcommit 32fbe3ba7aa50e308cd3a00d0d2a70b76a344cf8[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Dec 4 22:17:43 2022 +0300
+
+    add hide/open effect for side menu
+
+[33mcommit 06ca8aa016ba09a7d16307e13ba151f6b3bb1670[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Dec 4 12:51:56 2022 +0300
+
+    fix tasks status
+
+[33mcommit 63ebfeac60e4168fb36ec686e99f26cde776ff0a[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Dec 4 12:35:12 2022 +0300
+
+    add all CRUD functions for users except show
+
+[33mcommit 1bb884b8745dd8898d82ad8475bce579264bd610[m[33m ([m[1;31morigin/basicLogic[m[33m)[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Dec 3 21:37:17 2022 +0300
+
+    add all CRUD functions for tasks except show
+
+[33mcommit 9ecb89f6468df1984d712c74419bedaa7d6c5a75[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Dec 3 21:25:26 2022 +0300
+
+    add component select-status and views for tasks
+
+[33mcommit 9cb1d31aee55ea3326e23c3a543922b86182a059[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Dec 3 19:10:59 2022 +0300
+
+    add all CRUD functions for projects except show
+
+[33mcommit 9a9e82b6e82958735a3ee52ba09156273aa22138[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Dec 3 10:32:51 2022 +0300
+
+    add all CRUD functions for clients except show method
+
+[33mcommit 2ae8e03f7944b3878c397ff76c002a8c61391182[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 20:02:33 2022 +0300
+
+    add output of all clients records
+
+[33mcommit ba6a0c080d5e24acc1f47c639e5648847113745a[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 15:55:30 2022 +0300
+
+    add saving to the bd for clients store method
+
+[33mcommit 69adf0da9820a360b444d982205eef473be5c8ba[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 15:32:39 2022 +0300
+
+    add fillable fields for models and add validation for store method from clientContoller
+
+[33mcommit c099b66501ea3e04630e85c897c6d3e3389a7d8c[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 14:22:27 2022 +0300
+
+    create models for entities and migrations for them
+
+[33mcommit b9bfc1e4c357d164a3519c1a937d57f6d2628a5a[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Dec 2 14:21:12 2022 +0300
+
+    fix some bags
+
+[33mcommit 093cb7013ea225c6685c03d67647f3fea3be7d01[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 13 19:16:18 2022 +0300
+
+    add resource controllers and routes for them
+
+[33mcommit 3870602b2e5d4db8bfcd284527b30fac45ddebf4[m[33m ([m[1;31morigin/addFront[m[33m)[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 13 18:14:59 2022 +0300
+
+    add view of edit clients and buttons edit and delete
+
+[33mcommit daf6aa7188ec8fca3442876b9bba29d11a2291e9[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Oct 9 09:05:34 2022 +0300
+
+    add view of create client page
+
+[33mcommit d1ee2ed5225ab26e2b377e6d6d866c52d882d727[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sun Oct 9 08:55:13 2022 +0300
+
+    add new button component
+
+[33mcommit 136b085a2aa5c15d8110b656c2d72618b767b703[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Oct 8 08:25:31 2022 +0300
+
+    add view of dashboard page
+
+[33mcommit b6b03e7a7ce82fa1249e8ca483c039fc3b365d61[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Oct 8 07:45:37 2022 +0300
+
+    add view of tasks page
+
+[33mcommit 0be5cf1bc456aec15bd54ff8c0852af01538cb28[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Sat Oct 8 07:31:59 2022 +0300
+
+    add view of projecs page
+
+[33mcommit d6cf4af7e8649eda2cbb2e094415adbcb39448b9[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Oct 7 22:00:59 2022 +0300
+
+    add view of clients page
+
+[33mcommit 074fac2b8c26b91d61ea94d8e1a2877c5f657b99[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Oct 7 21:49:12 2022 +0300
+
+    add view of users page
+
+[33mcommit a86cbdf9d2080f3c3d91bef86e99bde31f8e0e72[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Oct 7 09:03:51 2022 +0300
+
+    add view of top line
+
+[33mcommit 1fae8ec379f2cb3f2845b62c4f38ed6998097da0[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Fri Oct 7 08:44:40 2022 +0300
+
+    add view of left sidebar
+
+[33mcommit 8eaad7f4dbaa77eb5d1c7704769823c9e3f011ef[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 10:19:32 2022 +0300
+
+    fix syntax
+
+[33mcommit ac5d5d270f7f1790fb8670d48bec5f7d27d72068[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 10:16:14 2022 +0300
+
+    add laravel breeze
+
+[33mcommit 47f7d6c53eb42cb582541b35c47404eb83ea13d9[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 09:18:32 2022 +0300
+
+    add php sniffer
+
+[33mcommit 89587e4e94d42d378e41f33aa080c400687a1ade[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 08:47:41 2022 +0300
+
+    add laravel project
+
+[33mcommit 8766eabbd1b2cfe129f26ed1986d004bf97a0f07[m
+Author: vitalyKol <vental-kvo@yandex.ru>
+Date:   Thu Oct 6 08:27:08 2022 +0300
+
+    first commit
