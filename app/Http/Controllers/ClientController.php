@@ -61,7 +61,8 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return redirect()->route('clients.index');
+        var_dump($client->user->first_name);
+     //   return redirect()->route('clients.index');
     }
 
     /**

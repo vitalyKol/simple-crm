@@ -19,4 +19,7 @@ class Project extends Model
 
     public $timestamps = false;
 
+    public function clients(){
+        return $this->belongsTo(Client::class, 'clients_id');
+    }
 }

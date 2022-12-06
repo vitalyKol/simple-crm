@@ -22,5 +22,7 @@ class Client extends Model
         self::create($data);
     }
 
-
+    public function user(){
+        return $this->belongsTo(Usercrm::class, 'user_id', 'id');
+    }
 }

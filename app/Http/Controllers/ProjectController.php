@@ -64,6 +64,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        $clients = $project->clients->company;
+        var_dump($clients);
+        die;
         return redirect()->route('projects.index');
     }
 
