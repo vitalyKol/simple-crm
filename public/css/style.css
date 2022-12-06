@@ -1,11 +1,13 @@
-#content{
-    height: 92vh;
+.right_block{
+    height: 100%;
+    min-height: 100vh;
 }
 a{
     text-decoration: none;
 }
 .left_menu{
     height: 100vh;
+    position: fixed;
     background-color: #2d3748;
     color: #cccccc;
     padding: 0;

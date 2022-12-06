@@ -24,7 +24,7 @@
                 <li><a href="{{route('tasks.index')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="text_side_menu">Tasks</span></a></li>
             </ul>
         </div>
-        <div class="col right_block">
+        <div class="offset-sm-3 offset-lg-2 col right_block">
             <div class="top_line">
                 <span id="switch_sidebar">
                     <i  class="fa fa-bars" aria-hidden="true"></i>
