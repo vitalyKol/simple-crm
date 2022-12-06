@@ -43,6 +43,7 @@
                 @endif
                 </tbody>
             </table>
+            {{$tasks->links()}}
         </div>
     </div>
 @endsection

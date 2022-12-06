@@ -16,7 +16,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
+        $clients = Client::paginate(5);
         $users = Usercrm::all(['id', 'first_name']);
         return view('clients.clients', compact('clients', 'users'));
     }

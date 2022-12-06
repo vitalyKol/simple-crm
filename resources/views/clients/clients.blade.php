@@ -45,6 +45,7 @@
                 @endif
                 </tbody>
             </table>
+            {{$clients->links()}}
         </div>
     </div>
 @endsection
