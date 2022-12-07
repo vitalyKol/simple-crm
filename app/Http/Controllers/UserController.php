@@ -55,7 +55,7 @@ class UserController extends Controller
     public function show(Usercrm $user)
     {
         $clients = $user->clients;
-        foreach($clients as $client){
+        foreach ($clients as $client) {
             echo "<br>" . $client->company;
         }
 

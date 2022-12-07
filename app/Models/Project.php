@@ -19,10 +19,12 @@ class Project extends Model
 
     public $timestamps = false;
 
-    public function client(){
+    public function client()
+    {
         return $this->belongsTo(Client::class, 'clients_id');
     }
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(Usercrm::class, 'user_id');
     }
 }

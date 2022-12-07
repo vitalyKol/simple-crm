@@ -29,8 +29,7 @@ class ClientController extends Controller
     public function create()
     {
         $users = Usercrm::all(['id', 'first_name']);
-        return view('clients.create', compact( 'users'));
-
+        return view('clients.create', compact('users'));
     }
 
     /**

@@ -17,9 +17,9 @@ class SelectStatus extends Component
     public function __construct($value)
     {
         $this->options = Task::$options;
-        if(is_array($value)){
+        if (is_array($value)) {
             $this->value = (int)$value['status'][0];
-        }else{
+        } else {
             $this->value = $value;
         }
     }

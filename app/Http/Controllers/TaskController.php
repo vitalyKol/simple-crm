@@ -15,16 +15,16 @@ class TaskController extends Controller
      */
     public function index()
     {
-        if(isset($_GET['option']) and $_GET['option'] === "all"){
+        if (isset($_GET['option']) and $_GET['option'] === "all") {
             $_GET['option'] = null;
         }
-        if(isset($_GET['unexpired']) and isset($_GET['option'])){
+        if (isset($_GET['unexpired']) and isset($_GET['option'])) {
             $tasks = Task::unexpired()->statuses($_GET['option'])->paginate(5);
-        }elseif(isset($_GET['unexpired'])){
+        } elseif (isset($_GET['unexpired'])) {
             $tasks = Task::unexpired()->paginate(5);
-        }elseif(isset($_GET['option'])){
+        } elseif (isset($_GET['option'])) {
             $tasks = Task::statuses($_GET['option'])->paginate(5);
-        }else{
+        } else {
             $tasks = Task::paginate(5);
         }
         $options = Task::$options;
@@ -85,7 +85,7 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         $users = Usercrm::all(['id', 'first_name']);
-        return view('tasks.edit', compact('task','users'));
+        return view('tasks.edit', compact('task', 'users'));
     }
 
     /**

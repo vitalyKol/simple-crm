@@ -18,11 +18,13 @@ class Client extends Model
 
     public $timestamps = false;
 
-    static function store($data){
+    static function store($data)
+    {
         self::create($data);
     }
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(Usercrm::class, 'user_id', 'id');
     }
 }

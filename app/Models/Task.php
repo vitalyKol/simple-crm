@@ -17,23 +17,26 @@ class Task extends Model
     ];
 
     public $timestamps = false;
-    static public array $options = [
+    public static array $options = [
         1 => 'Open',
         2 => 'Wait',
         3 => 'Close',
         4 => 'Cancel',
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(Usercrm::class, 'user_id');
     }
 
-    public function scopeUnexpired($query){
+    public function scopeUnexpired($query)
+    {
         $date = date('Y-m-d', time());
-        return $query->where('deadline','>',$date);
+        return $query->where('deadline', '>', $date);
     }
 
-    public function scopeStatuses($query, $status){
+    public function scopeStatuses($query, $status)
+    {
         return $query->where('status', '=', $status);
     }
 }
