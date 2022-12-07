@@ -3,7 +3,21 @@
     <x-button-create link="{{route('tasks.create')}}">Create task</x-button-create>
     <div class="card">
         <div class="card-header">
-            Tasks list
+            <h1 class="h4">Tasks list</h1>
+            <form action="{{route('tasks.index')}}" method="GET" class="text-center">
+                <h5 class="h5 mb-1">Filters:</h5>
+                <div class="btn-group mb-2" role="group" aria-label="Базовая группа переключателей флажков">
+                    <input type="radio" class="btn-check" name="option" id="all_options" value="all" @if(!isset($_GET['option']) || $_GET['option'] == 'all') checked @endif>
+                    <label class="btn btn-outline-primary" for="all_options">All</label>
+                    @foreach($options as $key => $option)
+                        <input type="radio" class="btn-check" name="option" id="{{$key}}" value="{{$key}}" @if(isset($_GET['option']) && $_GET['option'] == $key) checked @endif>
+                        <label class="btn btn-outline-primary" for="{{$key}}">{{$option}}</label>
+                    @endforeach
+                    <input type="checkbox" class="btn-check" id="unexpired" name="unexpired" value="unexpired" @if(isset($_GET['unexpired'])) checked @endif>
+                    <label class="btn btn-outline-primary" for="unexpired">Unexpired</label>
+                    <input type="submit" class="btn btn-outline-secondary" value="find">
+                </div>
+            </form>
         </div>
         <div class="card-body">
             <table class="table table-striped">
