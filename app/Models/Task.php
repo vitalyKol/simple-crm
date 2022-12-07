@@ -24,6 +24,10 @@ class Task extends Model
         4 => 'Cancel',
     ];
 
+    public function user(){
+        return $this->belongsTo(Usercrm::class, 'user_id');
+    }
+
     public function scopeUnexpired($query){
         $date = date('Y-m-d', time());
         return $query->where('deadline','>',$date);

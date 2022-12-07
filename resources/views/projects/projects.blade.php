@@ -27,7 +27,7 @@
                 @foreach($projects as $project)
                 <tr>
                     <th scope="row">{{$project->id}}</th>
-                    <td>{{$project->title}}</td>
+                    <td><a href="{{route('projects.show', $project->id)}}">{{$project->title}}</a></td>
                     @foreach($clients as $client)
                         @if($client->id === $project->clients_id)
                             <td>{{$client->company}}</td>

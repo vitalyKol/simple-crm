@@ -6,7 +6,7 @@
             <h1 class="h4">Tasks list</h1>
             <form action="{{route('tasks.index')}}" method="GET" class="text-center">
                 <h5 class="h5 mb-1">Filters:</h5>
-                <div class="btn-group mb-2" role="group" aria-label="Базовая группа переключателей флажков">
+                <div class="btn-group mb-2" role="group">
                     <input type="radio" class="btn-check" name="option" id="all_options" value="all" @if(!isset($_GET['option']) || $_GET['option'] == 'all') checked @endif>
                     <label class="btn btn-outline-primary" for="all_options">All</label>
                     @foreach($options as $key => $option)
@@ -40,7 +40,7 @@
                     @foreach($tasks as $task)
                     <tr>
                         <th scope="row">{{$task->id}}</th>
-                        <td>{{$task->title}}</td>
+                        <td><a href="{{route('tasks.show', $task->id)}}">{{$task->title}}</a></td>
                         <td>{{$options[$task->status]}}</td>
                         <td>{{$task->deadline}}</td>
                         @foreach($users as $user)

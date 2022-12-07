@@ -72,7 +72,8 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        return redirect()->route('tasks.index');
+        $options = Task::$options;
+        return view('tasks.show', compact('task', 'options'));
     }
 
     /**
