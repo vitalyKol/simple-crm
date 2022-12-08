@@ -22,6 +22,7 @@
                 <li><a href="{{route('clients.index')}}"><i class="fa fa-address-card" aria-hidden="true"></i><span class="text_side_menu">Clients</span></a></li>
                 <li><a href="{{route('projects.index')}}"><i class="fa fa-folder-open" aria-hidden="true"></i><span class="text_side_menu">Projects</span></a></li>
                 <li><a href="{{route('tasks.index')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="text_side_menu">Tasks</span></a></li>
+                <li><a href="{{route('comments.index')}}"><i class="fa fa-comments" aria-hidden="true"></i><span class="text_side_menu">Comments</span></a></li>
             </ul>
         </div>
         <div class="offset-sm-3 offset-lg-2 col right_block">
