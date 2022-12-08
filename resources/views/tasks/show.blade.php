@@ -11,6 +11,14 @@
                 <li class="list-group-item">Assigned user: {{$task->user->first_name}}</li>
                 <li class="list-group-item">Deadline: {{$task->deadline}}</li>
             </ul>
+            <h6 class="mt-5">Comments:</h6>
+            @if($task->comments->isEmpty())
+                <p>No comments</p>
+            @else
+            @foreach($task->comments as $comment)
+                <p>{{$comment->body}}</p>
+            @endforeach
+            @endif
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -24,7 +32,7 @@
                 @csrf
                 <input type="hidden" name="user_id" value="{{$task->user->id}}">
                 <input type="hidden" name="commentable_id" value="{{$task->id}}">
-                <input type="hidden" name="commentable_type" value="Task">
+                <input type="hidden" name="commentable_type" value="App\Models\Task">
                 <div class="mb-3">
                     <label for="comment" class="form-label">Comment</label>
                     <textarea class="form-control" id="comment" rows="3" name="body"></textarea>

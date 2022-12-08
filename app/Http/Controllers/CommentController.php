@@ -16,7 +16,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::paginate(5);
+        $comments = Comment::paginate(15);
         $users = Usercrm::all(['id', 'first_name']);
         return view('comments.comments', compact('comments', 'users'));
     }
@@ -91,8 +91,9 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return redirect()->route('comments.index');
     }
 }

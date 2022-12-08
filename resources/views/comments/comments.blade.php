@@ -32,12 +32,13 @@
                             <td>{{$user->first_name}}</td>
                         @endif
                     @endforeach
-                    <td>{{$comment->commentable_type}}</td>
+                    <td>{{substr(strrchr($comment->commentable_type, '\\'),1)}}
+                    </td>
                     <td>{{$comment->commentable_id}}</td>
                     <td>{{$comment->created_at}}</td>
                     <td>
-                        <x-button-edit link="{{route('clients.edit', $comment->id)}}"/>
-                        <x-button-delete link="{{route('clients.destroy', [$comment->id])}}"/>
+                        <x-button-edit link="{{route('comments.edit', $comment->id)}}"/>
+                        <x-button-delete link="{{route('comments.destroy', [$comment->id])}}"/>
                     </td>
                 </tr>
                 @endforeach
