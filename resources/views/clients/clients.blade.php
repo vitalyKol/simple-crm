@@ -20,7 +20,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if(!isset($clients))
+                @if($clients->isEmpty())
                     <tr>
                         <td colspan="6">Add any company</td>
                     </tr>

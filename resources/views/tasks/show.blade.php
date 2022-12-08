@@ -11,17 +11,27 @@
                 <li class="list-group-item">Assigned user: {{$task->user->first_name}}</li>
                 <li class="list-group-item">Deadline: {{$task->deadline}}</li>
             </ul>
-            <form class="mt-3" action="{{route('projects.update', $task->id)}}" method="post">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form class="mt-3" action="{{route('comments.store')}}" method="post">
                 @csrf
-                @method("PUT")
+                <input type="hidden" name="user_id" value="{{$task->user->id}}">
+                <input type="hidden" name="commentable_id" value="{{$task->id}}">
+                <input type="hidden" name="commentable_type" value="Task">
                 <div class="mb-3">
                     <label for="comment" class="form-label">Comment</label>
-                    <textarea class="form-control" id="comment" rows="3"></textarea>
+                    <textarea class="form-control" id="comment" rows="3" name="body"></textarea>
                 </div>
                 <div class="mb-3">
                     <input type="submit" class="btn btn-primary" value="Send">
                 </div>
-
             </form>
         </div>
     </div>

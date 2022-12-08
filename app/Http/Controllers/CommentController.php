@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
+use App\Models\Task;
+use App\Models\Usercrm;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -13,7 +16,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::paginate(5);
+        $users = Usercrm::all(['id', 'first_name']);
+        return view('comments.comments', compact('comments', 'users'));
     }
 
     /**
@@ -23,7 +28,7 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +39,16 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'body' => ['required', 'string'],
+            'user_id' => ['required'],
+            'commentable_id' => ['integer'],
+            'commentable_type' => ['string'],
+        ]);
+        $validated['user_id'] = (int)$validated['user_id'][0];
+
+        Comment::create($validated);
+        return redirect(request()->headers->get('referer'));
     }
 
     /**

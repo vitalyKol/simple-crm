@@ -19,7 +19,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if(!isset($projects))
+                @if($projects->isEmpty())
                     <tr>
                         <td colspan="7">Add any projects</td>
                     </tr>

@@ -17,6 +17,11 @@
                 </tr>
                 </thead>
                 <tbody>
+                @if($users->isEmpty())
+                    <tr>
+                        <td colspan="5">Add a user</td>
+                    </tr>
+                @else
                 @foreach($users as $user)
                 <tr>
                     <th scope="row">{{$user->id}}</th>
@@ -29,6 +34,7 @@
                     </td>
                 </tr>
                 @endforeach
+                @endif
                 </tbody>
             </table>
             {{$users->links()}}

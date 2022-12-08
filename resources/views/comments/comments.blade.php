@@ -1,51 +1,50 @@
 @extends('layouts.layout')
 
 @section('content')
-    <x-button-create link="{{route('clients.create')}}">Create client</x-button-create>
-
-    <div class="card">
+    <div class="card mt-3">
         <div class="card-header">
-            Clients list
+            Comments list
         </div>
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Company</th>
-                    <th scope="col">Number</th>
-                    <th scope="col">Activity</th>
+                    <th scope="col">Body</th>
                     <th scope="col">Assigned user</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Assigned type</th>
+                    <th scope="col">Assigned id of type</th>
+                    <th scope="col">Created</th>
                 </tr>
                 </thead>
                 <tbody>
-                @if(!isset($clients))
+                @if($comments->isEmpty())
                     <tr>
-                        <td colspan="6">Add any company</td>
+                        <td colspan="5">Add any comments</td>
                     </tr>
                 @else
-                @foreach($clients as $client)
+                @foreach($comments as $comment)
                 <tr>
-                    <th scope="row">{{$client->id}}</th>
-                    <td>{{$client->company}}</td>
-                    <td>{{$client->number}}</td>
-                    <td>{{$client->activity}}</td>
+                    <th scope="row">{{$comment->id}}</th>
+                    <td>{{$comment->body}}</td>
                     @foreach($users as $user)
-                        @if($user->id == $client->user_id)
+                        @if($user->id == $comment->user_id)
                             <td>{{$user->first_name}}</td>
                         @endif
                     @endforeach
+                    <td>{{$comment->commentable_type}}</td>
+                    <td>{{$comment->commentable_id}}</td>
+                    <td>{{$comment->created_at}}</td>
                     <td>
-                        <x-button-edit link="{{route('clients.edit', $client->id)}}"/>
-                        <x-button-delete link="{{route('clients.destroy', [$client->id])}}"/>
+                        <x-button-edit link="{{route('clients.edit', $comment->id)}}"/>
+                        <x-button-delete link="{{route('clients.destroy', [$comment->id])}}"/>
                     </td>
                 </tr>
                 @endforeach
                 @endif
                 </tbody>
             </table>
-            {{$clients->links()}}
+            {{$comments->links()}}
         </div>
     </div>
 @endsection

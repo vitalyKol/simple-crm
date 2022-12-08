@@ -32,7 +32,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @if(!isset($tasks))
+                @if($tasks->isEmpty())
                     <tr>
                         <td colspan="6">Add some tasks</td>
                     </tr>

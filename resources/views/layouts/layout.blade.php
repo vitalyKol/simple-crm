@@ -28,7 +28,7 @@
         <div class="offset-sm-3 offset-lg-2 col right_block">
             <div class="top_line">
                 <span id="switch_sidebar">
-                    <i  class="fa fa-bars" aria-hidden="true"></i>
+                    <i class="fa fa-bars" aria-hidden="true"></i>
                 </span>
                 <div class="top_line_login">
                     @if (Route::has('login'))
