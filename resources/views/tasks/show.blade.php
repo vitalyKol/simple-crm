@@ -16,7 +16,14 @@
                 <p>No comments</p>
             @else
             @foreach($task->comments as $comment)
-                <p>{{$comment->body}}</p>
+                <div class="card m-2">
+                    <div class="card-body">
+                        <h5 class="card-title">User id: {{$comment->user_id}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{$comment->created_at}}</h6>
+                        <p>{{$comment->body}}</p>
+                    </div>
+                </div>
+
             @endforeach
             @endif
             @if ($errors->any())
@@ -32,7 +39,7 @@
                 @csrf
                 <input type="hidden" name="user_id" value="{{$task->user->id}}">
                 <input type="hidden" name="commentable_id" value="{{$task->id}}">
-                <input type="hidden" name="commentable_type" value="App\Models\Task">
+                <input type="hidden" name="commentable_type" value="{{get_class($task)}}">
                 <div class="mb-3">
                     <label for="comment" class="form-label">Comment</label>
                     <textarea class="form-control" id="comment" rows="3" name="body"></textarea>

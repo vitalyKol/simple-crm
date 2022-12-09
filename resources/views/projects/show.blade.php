@@ -25,7 +25,7 @@
                 @csrf
                 <input type="hidden" name="user_id" value="{{$project->user->id}}">
                 <input type="hidden" name="commentable_id" value="{{$project->id}}">
-                <input type="hidden" name="commentable_type" value="App\Models\Project">
+                <input type="hidden" name="commentable_type" value="{{get_class($project)}}">
                 <div class="mb-3">
                     <label for="comment" class="form-label">Comment</label>
                     <textarea class="form-control" id="comment" rows="3" name="body"></textarea>

@@ -37,7 +37,7 @@
                     <td>{{$comment->commentable_id}}</td>
                     <td>{{$comment->created_at}}</td>
                     <td>
-                        <x-button-edit link="{{route('comments.edit', $comment->id)}}"/>
+{{--                        <x-button-edit link="{{route('comments.edit', $comment->id)}}"/>--}}
                         <x-button-delete link="{{route('comments.destroy', [$comment->id])}}"/>
                     </td>
                 </tr>
