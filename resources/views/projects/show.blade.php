@@ -8,7 +8,13 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Title: {{$project->title}}</li>
                 <li class="list-group-item">Assigned client: {{$project->client->company}}</li>
-                <li class="list-group-item">Assigned user: {{$project->user->first_name}}</li>
+                <li class="list-group-item">Assigned user:
+                    @if(isset($project->user->first_name))
+                        {{$project->user->first_name}}
+                    @else
+                        Was deleted
+                    @endif
+                </li>
                 <li class="list-group-item">Price $: {{$project->price}}</li>
                 <li class="list-group-item">Deadline: {{$project->deadline}}</li>
             </ul>
@@ -38,7 +44,12 @@
             @endif
             <form class="mt-3" action="{{route('comments.store')}}" method="post">
                 @csrf
-                <input type="hidden" name="user_id" value="{{$project->user->id}}">
+                <input type="hidden" name="user_id" value="{
+                @if(isset($project->user->id))
+                        {{$task->user->id}}
+                    @else
+                       {{null}}
+                    @endif">
                 <input type="hidden" name="commentable_id" value="{{$project->id}}">
                 <input type="hidden" name="commentable_type" value="{{get_class($project)}}">
                 <div class="mb-3">

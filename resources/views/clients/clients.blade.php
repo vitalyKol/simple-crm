@@ -31,11 +31,16 @@
                     <td>{{$client->company}}</td>
                     <td>{{$client->number}}</td>
                     <td>{{$client->activity}}</td>
+                    <?php $flag = 0; ?>
                     @foreach($users as $user)
                         @if($user->id == $client->user_id)
                             <td>{{$user->first_name}}</td>
+                            <?php $flag = 1; ?>
                         @endif
                     @endforeach
+                    @if($flag === 0)
+                        <td>Was deleted</td>
+                    @endif
                     <td>
                         <x-button-edit link="{{route('clients.edit', $client->id)}}"/>
                         <x-button-delete link="{{route('clients.destroy', [$client->id])}}"/>

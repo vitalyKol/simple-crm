@@ -8,7 +8,13 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Title: {{$task->title}}</li>
                 <li class="list-group-item">Status: {{$options[$task->status]}}</li>
-                <li class="list-group-item">Assigned user: {{$task->user->first_name}}</li>
+                <li class="list-group-item">Assigned user:
+                    @if(isset($task->user->first_name))
+                        {{$task->user->first_name}}
+                    @else
+                        Was deleted
+                    @endif
+                </li>
                 <li class="list-group-item">Deadline: {{$task->deadline}}</li>
             </ul>
             <h6 class="mt-5">Comments:</h6>
@@ -37,7 +43,13 @@
             @endif
             <form class="mt-3" action="{{route('comments.store')}}" method="post">
                 @csrf
-                <input type="hidden" name="user_id" value="{{$task->user->id}}">
+                <input type="hidden" name="user_id" value="
+                @if(isset($task->user->id))
+                        {{$task->user->id}}
+                    @else
+                       {{null}}
+                    @endif
+                    ">
                 <input type="hidden" name="commentable_id" value="{{$task->id}}">
                 <input type="hidden" name="commentable_type" value="{{get_class($task)}}">
                 <div class="mb-3">

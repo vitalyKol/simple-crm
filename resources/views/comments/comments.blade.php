@@ -21,7 +21,7 @@
                 <tbody>
                 @if($comments->isEmpty())
                     <tr>
-                        <td colspan="5">Add any comments</td>
+                        <td colspan="7">Add any comments</td>
                     </tr>
                 @else
                 @foreach($comments as $comment)

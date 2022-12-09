@@ -43,11 +43,16 @@
                         <td><a href="{{route('tasks.show', $task->id)}}">{{$task->title}}</a></td>
                         <td>{{$options[$task->status]}}</td>
                         <td>{{$task->deadline}}</td>
+                        <?php $flag = 0; ?>
                         @foreach($users as $user)
                             @if($user->id === $task->user_id)
                                 <td>{{$user->first_name}}</td>
+                                <?php $flag = 1; ?>
                             @endif
                         @endforeach
+                        @if($flag === 0)
+                            <td>Was deleted</td>
+                        @endif
                         <td>
                             <x-button-edit link="{{route('tasks.edit', $task->id)}}"/>
                             <x-button-delete link="{{route('tasks.destroy', $task->id)}}"/>

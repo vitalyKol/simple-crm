@@ -28,16 +28,26 @@
                 <tr>
                     <th scope="row">{{$project->id}}</th>
                     <td><a href="{{route('projects.show', $project->id)}}">{{$project->title}}</a></td>
+                    <?php $flag = 0; ?>
                     @foreach($clients as $client)
                         @if($client->id === $project->clients_id)
                             <td>{{$client->company}}</td>
+                            <?php $flag = 1; ?>
                         @endif
                     @endforeach
+                    @if($flag === 0)
+                        <td>Was deleted</td>
+                    @endif
+                    <?php $flag = 0; ?>
                     @foreach($users as $user)
                         @if($user->id === $project->user_id)
                             <td>{{$user->first_name}}</td>
+                            <?php $flag = 1; ?>
                         @endif
                     @endforeach
+                    @if($flag === 0)
+                        <td>Was deleted</td>
+                    @endif
                     <td>{{$project->price}}</td>
                     <td>{{$project->deadline}}</td>
                     <td>

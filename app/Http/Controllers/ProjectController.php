@@ -19,6 +19,9 @@ class ProjectController extends Controller
         $projects = Project::paginate(5);
         $clients = Client::all(['id', 'company']);
         $users = Usercrm::all(['id', 'first_name']);
+
+
+
         return view('projects.projects', compact('clients', 'users', 'projects'));
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Usercrm;
 use Illuminate\Http\Request;
 
@@ -101,6 +102,10 @@ class UserController extends Controller
      */
     public function destroy(Usercrm $user)
     {
+        $comments = Comment::where('user_id', $user->id)->get();
+        foreach ($comments as $comment){
+            $comment->delete();
+        }
         $user->delete();
         return redirect()->route('users.index');
     }
