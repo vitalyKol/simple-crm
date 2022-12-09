@@ -15,6 +15,7 @@
                     <th scope="col">Assigned type</th>
                     <th scope="col">Assigned id of type</th>
                     <th scope="col">Created</th>
+                    <th scope="col">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -27,13 +28,8 @@
                 <tr>
                     <th scope="row">{{$comment->id}}</th>
                     <td>{{$comment->body}}</td>
-                    @foreach($users as $user)
-                        @if($user->id == $comment->user_id)
-                            <td>{{$user->first_name}}</td>
-                        @endif
-                    @endforeach
-                    <td>{{substr(strrchr($comment->commentable_type, '\\'),1)}}
-                    </td>
+                    <td>{{$comment->user_id}}</td>
+                    <td>{{$comment->commentable_type}} </td>
                     <td>{{$comment->commentable_id}}</td>
                     <td>{{$comment->created_at}}</td>
                     <td>

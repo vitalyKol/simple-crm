@@ -18,7 +18,7 @@
             @foreach($task->comments as $comment)
                 <div class="card m-2">
                     <div class="card-body">
-                        <h5 class="card-title">User id: {{$comment->user_id}}</h5>
+                        <h5 class="card-title">User: {{$comment->user_id}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{$comment->created_at}}</h6>
                         <p>{{$comment->body}}</p>
                     </div>

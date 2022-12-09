@@ -21,6 +21,21 @@
                     </ul>
                 </div>
             @endif
+            <h6 class="mt-5">Comments:</h6>
+            @if($project->comments->isEmpty())
+                <p>No comments</p>
+            @else
+                @foreach($project->comments as $comment)
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <h5 class="card-title">User: {{$comment->user_id}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{$comment->created_at}}</h6>
+                            <p>{{$comment->body}}</p>
+                        </div>
+                    </div>
+
+                @endforeach
+            @endif
             <form class="mt-3" action="{{route('comments.store')}}" method="post">
                 @csrf
                 <input type="hidden" name="user_id" value="{{$project->user->id}}">
