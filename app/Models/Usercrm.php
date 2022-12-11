@@ -20,8 +20,4 @@ class Usercrm extends Model
 
     public $timestamps = false;
 
-    public function clients()
-    {
-        return $this->hasMany(Client::class, 'user_id');
-    }
 }
