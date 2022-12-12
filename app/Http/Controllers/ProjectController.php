@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Project;
-use App\Models\Usercrm;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -18,9 +18,7 @@ class ProjectController extends Controller
     {
         $projects = Project::paginate(5);
         $clients = Client::all(['id', 'company']);
-        $users = Usercrm::all(['id', 'first_name']);
-
-
+        $users = User::all(['id', 'name']);
 
         return view('projects.projects', compact('clients', 'users', 'projects'));
     }
@@ -33,7 +31,7 @@ class ProjectController extends Controller
     public function create()
     {
         $clients = Client::all(['id', 'company']);
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('projects.create', compact('clients', 'users'));
     }
 
@@ -79,7 +77,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $clients = Client::all(['id', 'company']);
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('projects.edit', compact('clients', 'users', 'project'));
     }
 

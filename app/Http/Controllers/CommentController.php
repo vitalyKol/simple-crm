@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Task;
-use App\Models\Usercrm;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -17,7 +17,7 @@ class CommentController extends Controller
     public function index()
     {
         $comments = Comment::paginate(15);
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('comments.comments', compact('comments', 'users'));
     }
 

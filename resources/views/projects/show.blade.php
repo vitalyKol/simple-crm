@@ -9,8 +9,8 @@
                 <li class="list-group-item">Title: {{$project->title}}</li>
                 <li class="list-group-item">Assigned client: {{$project->client->company}}</li>
                 <li class="list-group-item">Assigned user:
-                    @if(isset($project->user->first_name))
-                        {{$project->user->first_name}}
+                    @if(isset($project->user->name))
+                        {{$project->user->name}}
                     @else
                         Was deleted
                     @endif

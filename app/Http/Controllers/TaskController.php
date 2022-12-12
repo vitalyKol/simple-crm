@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use App\Models\Usercrm;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -28,7 +28,7 @@ class TaskController extends Controller
             $tasks = Task::paginate(5);
         }
         $options = Task::$options;
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('tasks.tasks', compact('tasks', 'users', 'options'));
     }
 
@@ -39,7 +39,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('tasks.create', compact('users'));
     }
 
@@ -84,7 +84,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('tasks.edit', compact('task', 'users'));
     }
 

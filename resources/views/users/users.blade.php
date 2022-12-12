@@ -10,8 +10,8 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First name</th>
-                    <th scope="col">Last name</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Admin</th>
                     <th scope="col">Position</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -25,8 +25,8 @@
                 @foreach($users as $user)
                 <tr>
                     <th scope="row">{{$user->id}}</th>
-                    <td>{{$user->first_name}}</td>
-                    <td>{{$user->last_name}}</td>
+                    <td>{{$user->name}}</td>
+                    <td>@if($user->is_admin) Yes @else No @endif</td>
                     <td>{{$user->position}}</td>
                     <td>
                         <x-button-edit link="{{route('users.edit', $user->id)}}"/>

@@ -9,8 +9,8 @@
                 <li class="list-group-item">Title: {{$task->title}}</li>
                 <li class="list-group-item">Status: {{$options[$task->status]}}</li>
                 <li class="list-group-item">Assigned user:
-                    @if(isset($task->user->first_name))
-                        {{$task->user->first_name}}
+                    @if(isset($task->user->name))
+                        {{$task->user->name}}
                     @else
                         Was deleted
                     @endif

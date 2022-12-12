@@ -27,7 +27,7 @@ class Project extends Model
     }
     public function user()
     {
-        return $this->belongsTo(Usercrm::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
     public function comments()
     {

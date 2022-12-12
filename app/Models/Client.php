@@ -27,6 +27,6 @@ class Client extends Model
 
     public function user()
     {
-        return $this->belongsTo(Usercrm::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
