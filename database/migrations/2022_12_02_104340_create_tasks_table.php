@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('status');
             $table->date('deadline');
-            $table->foreignId('user_id')->constrained('userscrm');
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 

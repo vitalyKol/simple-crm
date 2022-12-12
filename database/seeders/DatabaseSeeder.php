@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
 //            UsercrmSeeder::class,
-//            ClientSeeder::class,
-//            ProjectSeeder::class,
-//            TaskSeeder::class,
             UserSeeder::class,
+            ClientSeeder::class,
+            ProjectSeeder::class,
+            TaskSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

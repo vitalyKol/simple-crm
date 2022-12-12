@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->foreignId('clients_id')->constrained('clients');
-            $table->foreignId('user_id')->constrained('userscrm');
+            $table->foreignId('user_id')->constrained('users');
             $table->integer('price');
             $table->date('deadline');
         });

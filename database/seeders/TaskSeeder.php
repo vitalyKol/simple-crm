@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Task;
-use App\Models\Usercrm;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
@@ -18,7 +18,7 @@ class TaskSeeder extends Seeder
     public function run()
     {
         Task::factory()->count(5)->state(new Sequence(fn($sequence) => [
-            'user_id' => Usercrm::all()->random(),
+            'user_id' => User::all(['id'])->random(),
         ]))->create();
     }
 }
