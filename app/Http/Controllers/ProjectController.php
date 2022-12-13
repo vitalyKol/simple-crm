@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\Project;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -65,6 +66,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        if (Auth::user()->cannot('view', $project)) {
+            abort(404);
+        }
         return view('projects.show', compact('project'));
     }
 
@@ -76,6 +80,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        if (Auth::user()->cannot('view', $project)) {
+            abort(404);
+        }
         $clients = Client::all(['id', 'company']);
         $users = User::all(['id', 'name']);
         return view('projects.edit', compact('clients', 'users', 'project'));
@@ -90,6 +97,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        if ($request->user()->cannot('update', $project)) {
+            abort(404);
+        }
         $validated = $request->validate([
             'title' => ['required', 'string'],
             'clients_id' => ['required'],
@@ -112,6 +122,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if (Auth::user()->cannot('delete', $project)) {
+            abort(404);
+        }
         $project->delete();
         return redirect()->route('projects.index');
     }

@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -93,6 +94,9 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
+        if (Auth::user()->cannot('delete', $comment)) {
+            abort(404);
+        }
         $comment->delete();
         return redirect()->route('comments.index');
     }

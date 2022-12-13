@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -61,8 +62,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        var_dump($client->user->first_name);
-     //   return redirect()->route('clients.index');
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -73,7 +73,9 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-
+        if (Auth::user()->cannot('update', $client)) {
+            abort(404);
+        }
         $users = User::all(['id', 'name']);
         return view('clients.edit', compact('client', 'users'));
     }
@@ -87,7 +89,9 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-
+        if ($request->user()->cannot('update', $client)) {
+            abort(404);
+        }
         $validated = $request->validate([
             'company' => ['required', 'string'],
             'number' => ['required'],
@@ -107,6 +111,9 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
+        if (Auth::user()->cannot('update', $client)) {
+            abort(404);
+        }
         $client->delete();
         return redirect()->route('clients.index');
     }

@@ -43,13 +43,7 @@
             @endif
             <form class="mt-3" action="{{route('comments.store')}}" method="post">
                 @csrf
-                <input type="hidden" name="user_id" value="
-                @if(isset($task->user->id))
-                        {{$task->user->id}}
-                    @else
-                       {{null}}
-                    @endif
-                    ">
+                <input type="hidden" name="user_id" value="{{\Illuminate\Support\Facades\Auth::id()}}">
                 <input type="hidden" name="commentable_id" value="{{$task->id}}">
                 <input type="hidden" name="commentable_type" value="{{get_class($task)}}">
                 <div class="mb-3">

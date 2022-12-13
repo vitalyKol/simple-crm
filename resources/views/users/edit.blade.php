@@ -29,9 +29,11 @@
                     <label for="role" class="form-label">Role</label>
                     <select class="form-select" name="is_admin[]" id="role">
                         @if($user->is_admin)
-                            <option value="1">Admin</option>
-                        @else
+                            <option value="1" selected>Admin</option>
                             <option value="0">User</option>
+                        @else
+                            <option value="1">Admin</option>
+                            <option value="0" selected>User</option>
                         @endif
                     </select>
                 </div>
