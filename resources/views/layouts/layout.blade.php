@@ -18,7 +18,9 @@
             <h5 class="text-center left_menu_title"><a href="{{route('main')}}">CRM</a></h5>
             <ul class="left_menu_list">
                 <li><a href="{{ route('dashboard') }}"><i class="fa fa-list-alt" aria-hidden="true"></i><span class="text_side_menu">Dashboard</span></a></li>
+                @can('is-admin')
                 <li><a href="{{route('users.index')}}"><i class="fa fa-user" aria-hidden="true"></i><span class="text_side_menu">Users</span></a></li>
+                @endcan
                 <li><a href="{{route('clients.index')}}"><i class="fa fa-address-card" aria-hidden="true"></i><span class="text_side_menu">Clients</span></a></li>
                 <li><a href="{{route('projects.index')}}"><i class="fa fa-folder-open" aria-hidden="true"></i><span class="text_side_menu">Projects</span></a></li>
                 <li><a href="{{route('tasks.index')}}"><i class="fa fa-tasks" aria-hidden="true"></i><span class="text_side_menu">Tasks</span></a></li>

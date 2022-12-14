@@ -32,7 +32,7 @@
                     <label for="user_id" class="form-label">Assigned user</label>
                     <select class="form-select" id="user_id" name="user_id[]">
                         @foreach($users as $user)
-                            <option value="{{$user->id}}">{{$user->first_name}}</option>
+                            <option value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
                     </select>
                 </div>

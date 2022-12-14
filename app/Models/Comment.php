@@ -29,9 +29,9 @@ class Comment extends Model
     {
         return Attribute::make(
             get: function($value){
-                $users = Usercrm::all();
+                $users = User::all(['id', 'name']);
                 foreach($users as $user){
-                    if($value == $user->id) return $user->first_name;
+                    if($value == $user->id) return $user->name;
                 }
                 },
         );

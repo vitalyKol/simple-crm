@@ -34,10 +34,10 @@
                     <select class="form-select" id="assigned" name="user_id[]">
                         @foreach($users as $user)
                             @if($user->id === $client->user_id)
-                                <option value="{{$user->id}}" selected>{{$user->first_name}}</option>
+                                <option value="{{$user->id}}" selected>{{$user->name}}</option>
                                 @continue
                             @endif
-                            <option value="{{$user->id}}">{{$user->first_name}}</option>
+                            <option value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
                     </select>
                 </div>

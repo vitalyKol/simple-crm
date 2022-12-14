@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use App\Models\Usercrm;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -28,7 +29,7 @@ class TaskController extends Controller
             $tasks = Task::paginate(5);
         }
         $options = Task::$options;
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('tasks.tasks', compact('tasks', 'users', 'options'));
     }
 
@@ -39,7 +40,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('tasks.create', compact('users'));
     }
 
@@ -72,6 +73,9 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
+        if (Auth::user()->cannot('view', $task)) {
+            abort(404);
+        }
         $options = Task::$options;
         return view('tasks.show', compact('task', 'options'));
     }
@@ -84,7 +88,10 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        $users = Usercrm::all(['id', 'first_name']);
+        if (Auth::user()->cannot('update', $task)) {
+            abort(404);
+        }
+        $users = User::all(['id', 'name']);
         return view('tasks.edit', compact('task', 'users'));
     }
 
@@ -97,6 +104,9 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
+        if ($request->user()->cannot('update', $task)) {
+            abort(404);
+        }
         $validated = $request->validate([
             'title' => ['required', 'string'],
             'status' => ['required'],
@@ -118,6 +128,9 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
+        if (Auth::user()->cannot('update', $task)) {
+            abort(404);
+        }
         $task->delete();
         return redirect()->route('tasks.index');
     }

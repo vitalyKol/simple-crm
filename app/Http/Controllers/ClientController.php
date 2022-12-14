@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
-use App\Models\Usercrm;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -17,7 +18,7 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::paginate(5);
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('clients.clients', compact('clients', 'users'));
     }
 
@@ -28,7 +29,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        $users = Usercrm::all(['id', 'first_name']);
+        $users = User::all(['id', 'name']);
         return view('clients.create', compact('users'));
     }
 
@@ -40,6 +41,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->post());
         $validated = $request->validate([
             'company' => ['required', 'string'],
             'number' => ['required', 'numeric'],
@@ -60,8 +62,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        var_dump($client->user->first_name);
-     //   return redirect()->route('clients.index');
+        return redirect()->route('clients.index');
     }
 
     /**
@@ -72,7 +73,10 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        $users = Usercrm::all(['id', 'first_name']);
+        if (Auth::user()->cannot('update', $client)) {
+            abort(404);
+        }
+        $users = User::all(['id', 'name']);
         return view('clients.edit', compact('client', 'users'));
     }
 
@@ -85,14 +89,16 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
+        if ($request->user()->cannot('update', $client)) {
+            abort(404);
+        }
         $validated = $request->validate([
             'company' => ['required', 'string'],
-            'number' => ['required', 'numeric'],
+            'number' => ['required'],
             'activity' => ['required', 'string'],
             'user_id' => ['required'],
         ]);
         $validated['user_id'] = (int)$validated['user_id'][0];
-
         $client->update($validated);
         return redirect()->route('clients.index');
     }
@@ -105,6 +111,9 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
+        if (Auth::user()->cannot('update', $client)) {
+            abort(404);
+        }
         $client->delete();
         return redirect()->route('clients.index');
     }

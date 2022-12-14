@@ -18,12 +18,24 @@
                 @csrf
                 @method("PUT")
                 <div class="mb-3">
-                    <label for="first_name" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Mark" value = "{{$user->first_name}}">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Mark" value = "{{$user->name}}">
                 </div>
                 <div class="mb-3">
-                    <label for="last_name" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Smith" value = "{{$user->last_name}}" >
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="email@google.com" value = "{{$user->email}}">
+                </div>
+                <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <select class="form-select" name="is_admin[]" id="role">
+                        @if($user->is_admin)
+                            <option value="1" selected>Admin</option>
+                            <option value="0">User</option>
+                        @else
+                            <option value="1">Admin</option>
+                            <option value="0" selected>User</option>
+                        @endif
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="position" class="form-label">Position</label>

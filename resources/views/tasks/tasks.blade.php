@@ -46,7 +46,7 @@
                         <?php $flag = 0; ?>
                         @foreach($users as $user)
                             @if($user->id === $task->user_id)
-                                <td>{{$user->first_name}}</td>
+                                <td>{{$user->name}}</td>
                                 <?php $flag = 1; ?>
                             @endif
                         @endforeach

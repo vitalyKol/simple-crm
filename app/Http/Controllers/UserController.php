@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
-use App\Models\Usercrm;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = Usercrm::paginate(5);
+        $users = User::select('id', 'name', 'is_admin', 'position')->paginate(5);
         return view('users.users', compact('users'));
     }
 
@@ -38,12 +38,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'first_name' => ['required', 'string'],
-            'last_name' => ['required', 'string'],
+            'name' => ['required', 'string'],
+            'email' => ['required', 'email'],
+            'is_admin' => ['required'],
             'position' => ['required', 'string'],
         ]);
-
-        Usercrm::create($validated);
+        $validated['is_admin'] = (int)$validated['is_admin'][0];
+        $validated['password'] = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi';
+        User::create($validated);
         return redirect()->route('users.index');
     }
 
@@ -53,7 +55,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Usercrm $user)
+    public function show(User $user)
     {
         $clients = $user->clients;
         foreach ($clients as $client) {
@@ -70,7 +72,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usercrm $user)
+    public function edit(User $user)
     {
         return view('users.edit', compact('user'));
     }
@@ -82,14 +84,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usercrm $user)
+    public function update(Request $request, User $user)
     {
         $validated = $request->validate([
-            'first_name' => ['required', 'string'],
-            'last_name' => ['required', 'string'],
-            'position' => ['string'],
+            'name' => ['required', 'string'],
+            'email' => ['required', 'email'],
+            'is_admin' => ['required'],
+            'position' => ['required', 'string'],
         ]);
-
+        $validated['is_admin'] = (int)$validated['is_admin'][0];
         $user->update($validated);
         return redirect()->route('users.index');
     }
@@ -100,7 +103,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usercrm $user)
+    public function destroy(User $user)
     {
         $comments = Comment::where('user_id', $user->id)->get();
         foreach ($comments as $comment){

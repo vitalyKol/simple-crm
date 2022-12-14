@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('company');
             $table->string('number');
             $table->string('activity');
-            $table->foreignId('user_id')->constrained('userscrm');
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 
