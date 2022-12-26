@@ -28,12 +28,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+Route::get('tokens/clear', [\App\Http\Controllers\Api\BaseController::class, 'clearTokens'])->middleware('auth');
+Route::get('/tokens/create', [\App\Http\Controllers\Api\BaseController::class, 'createToken'])->middleware('auth');
 
-//use Illuminate\Foundation\Auth\EmailVerificationRequest;
-//
-//Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-//    $request->fulfill();
-//
-//    return redirect('/home');
-//})->middleware(['auth'])->name('verification.verify');
+require __DIR__.'/auth.php';
